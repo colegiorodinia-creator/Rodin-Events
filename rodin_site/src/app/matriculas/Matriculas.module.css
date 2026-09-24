@@ -1,0 +1,249 @@
+.main {
+  background-color: var(--rodin-white);
+  height: 100vh;
+  overflow: hidden; /* Remove o scroll da página no desktop */
+}
+
+.splitLayout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.leftContainer {
+  width: 45%;
+  height: 100vh;
+}
+
+.leftImage {
+  width: 100%;
+  height: 100%;
+  background-image: url('/fachada_hd.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem;
+  position: relative;
+}
+
+.leftImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+  z-index: 1;
+}
+
+.imageText {
+  position: relative;
+  z-index: 2;
+  color: var(--rodin-white);
+}
+
+.imageTitle {
+  font-family: var(--font-headline);
+  font-size: 3rem; /* Reduzido de 3.5rem */
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem; /* Margem reduzida */
+}
+
+.imageSubtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem; /* Reduzido de 1.2rem */
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.rightForm {
+  width: 55%;
+  height: 100vh;
+  padding: 80px 6vw 40px 6vw; /* Espaços reduzidos no topo também */
+  background-color: var(--rodin-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto; /* Adiciona scroll interno só se a tela for hiper pequena */
+}
+
+.formHeader {
+  margin-bottom: 1rem; /* Era 1.5rem */
+}
+
+.formTitle {
+  font-family: var(--font-headline);
+  font-size: 1.8rem; /* Reduzido de 2.2rem */
+  font-weight: 800;
+  color: var(--rodin-black);
+  margin-bottom: 0.5rem;
+}
+
+.formSubtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input, .textarea, .select {
+  width: 100%;
+  padding: 1rem 0 0.5rem 0; /* Padding reduzido */
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--rodin-black);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: var(--rodin-orange);
+}
+
+.floatingLabel {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-family: var(--font-headline);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #999;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+.input:focus ~ .floatingLabel,
+.input:not(:placeholder-shown) ~ .floatingLabel,
+.textarea:focus ~ .floatingLabel,
+.textarea:not(:placeholder-shown) ~ .floatingLabel,
+.select:focus ~ .floatingLabel,
+.select:valid ~ .floatingLabel {
+  top: -10px;
+  font-size: 0.85rem;
+  color: var(--rodin-orange);
+}
+
+.textarea {
+  min-height: 50px;
+  resize: vertical;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--rodin-orange);
+  color: var(--rodin-white);
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover {
+  background-color: #e55b13;
+  transform: translateY(-3px);
+}
+
+.successMessage {
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+}
+
+.successMessage h3 {
+  font-family: var(--font-headline);
+  color: #2ecc71;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.whatsappBlock {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.whatsappText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #666;
+}
+
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #25D366;
+  color: var(--rodin-white);
+  font-family: var(--font-headline);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.2s ease;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .splitLayout {
+    flex-direction: column;
+    height: auto;
+  }
+  .main {
+    height: auto;
+    overflow: auto;
+  }
+  .leftContainer {
+    width: 100%;
+    height: 50vh;
+  }
+  .leftImage {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: 50vh;
+    padding: 3rem 2rem;
+  }
+  .rightForm {
+    width: 100%;
+    height: auto;
+    padding: 3rem 2rem;
+  }
+  .imageTitle {
+    font-size: 2.5rem;
+  }
+  .whatsappBlock {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.backButton { position: absolute; top: 2rem; left: 2rem; z-index: 10; display: flex; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; padding: 0; transition: transform 0.2s ease; }
+.backButton:hover { transform: scale(1.1); }
+.backButton svg { width: 44px; height: 44px; }

@@ -1,0 +1,426 @@
+.main {
+  background-color: var(--rodin-white);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5rem 5vw;
+  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.png'); background-size: cover; background-position: center; background-attachment: fixed;
+  text-align: center;
+}
+
+.videoSection {
+  padding: 8rem 5vw;
+  background-color: var(--rodin-white);
+}
+
+.videoContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.infoSection {
+  padding: 8rem 5vw 8rem 5vw;
+  background-color: var(--rodin-white);
+}
+
+.infoContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.infoText {
+  flex: 1;
+}
+
+.sectionTitle {
+  font-family: var(--font-headline);
+  font-size: clamp(1.2rem, 3.5vw, 3.5rem);
+  color: var(--rodin-black);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--rodin-black);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.infoImageWrapper {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.infoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .infoContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+.videoPlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--rodin-black) 0%, #1a1a1a 100%);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+.videoPlaceholder p {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.heroOverlayDark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.playButtonWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid var(--rodin-white);
+  color: var(--rodin-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.playButton:hover {
+  background-color: var(--rodin-orange);
+  border-color: var(--rodin-orange);
+  transform: scale(1.1);
+}
+
+.playButton svg {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px; /* offset for visual balance */
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 8%;
+  left: 8%;
+  z-index: 10;
+  max-width: 500px;
+  text-align: left;
+  pointer-events: none;
+}
+
+.textOverlayName {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--rodin-white);
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.textOverlayRole {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--rodin-white);
+  margin: 5px 0 0 0;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.textOverlayDivider {
+  width: 100%;
+  height: 4px;
+  background-color: var(--rodin-orange);
+  margin: 15px 0;
+}
+
+.textOverlayQuote {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--rodin-white);
+  font-style: italic;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.2rem, 3.5vw, 3.5rem);
+  color: var(--rodin-black);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--rodin-orange);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gridSection {
+  padding: 5rem 5vw;
+  background-color: var(--rodin-white);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #D1D1D1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(212, 110, 39, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.exploreText {
+  color: var(--rodin-white);
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #E8E8E8;
+  border-top: 1px solid #D1D1D1;
+}
+
+.cardTitle {
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  word-break: break-word;
+  color: var(--rodin-emerald);
+  font-weight: 700;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  transform: scale(1.1);
+}
+
+.backButton svg {
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  .textOverlay {
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12vh 5vw 12vh 5vw;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .textOverlayTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .textOverlayName {
+    font-size: 2.2rem; /* Reduced to fit mobile screen */
+  }
+  
+  .textOverlayRole {
+    font-size: 1rem;
+  }
+
+  .textOverlayDivider {
+    width: 50%;
+  }
+
+  .textOverlayQuote {
+    font-size: 0.95rem; /* Reduced to fit the screen */
+    padding: 0 2vw;
+  }
+}
+
+
+.videoPlaceholderBadge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 30px;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.videoPlaceholderBadge p {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  color: var(--rodin-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .videoPlaceholderBadge {
+    top: 40%;
+  }
+}

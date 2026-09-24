@@ -1,0 +1,3 @@
+anon: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBibXdyYmVodnZxd253YnZoZHBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3Nzg0MDAsImV4cCI6MjA5NDM1NDQwMH0.0lMfAJoIi1f-R73VrPoe3gQzbKHgQiH1n9Md6KeDc3g
+
+API URL: https://pbmwrbehvvqwnwbvhdpk.supabase.co/rest/v1/

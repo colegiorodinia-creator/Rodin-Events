@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe conosco</title>
+    <link rel="icon" type="image/png" href="favicon.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20">
+    
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="split-layout">
+        <!-- Lado Esquerdo: Branding -->
+        <div class="split-left">
+            <div class="branding-content">
+                <div class="logo">
+                    <img src="logo-branca.png" alt="Colégio Rodin" class="img-logo">
+                </div>
+                <div class="quote-container">
+                    <p class="quote">"O mundo não será feliz a não ser quando todos os homens tiverem alma de artista, isto é, quando todos tirarem prazer do seu trabalho."</p>
+                    <p class="quote-author">- Auguste Rodin</p>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <p>Deslize para ver as opções</p>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lado Direito: Formulário -->
+        <div class="split-right">
+            <div class="form-container">
+                
+                <!-- Step 0: Boas Vindas -->
+                <div id="step-0" class="step active">
+                    <div class="step-header">
+                        <h2>Bem-vindo ao Trabalhe Conosco</h2>
+                        <p class="subtitle">Como você gostaria de iniciar sua jornada conosco?</p>
+                    </div>
+                    
+                    <div class="welcome-cards">
+                        <button type="button" class="welcome-card" id="btn-show-vagas">
+                            <div class="welcome-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <h3>Vagas Disponíveis</h3>
+                            <p>Explore as oportunidades que estão abertas no momento.</p>
+                        </button>
+
+                        <button type="button" class="welcome-card" id="btn-banco-talentos">
+                            <div class="welcome-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h3>Banco de Talentos</h3>
+                            <p>Envie seu currículo para uma área específica e entraremos em contato.</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step Vagas: Lista de Vagas -->
+                <div id="step-vagas" class="step">
+                    <div class="step-header with-back">
+                        <button type="button" class="btn-back" id="btn-back-vagas" title="Voltar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <div>
+                            <h2>Vagas Abertas</h2>
+                            <p class="subtitle">Encontre a oportunidade perfeita para o seu perfil.</p>
+                        </div>
+                    </div>
+
+                    <div class="vagas-list" id="vagas-list-container">
+                        <!-- Vagas serão renderizadas aqui via JS -->
+                    </div>
+                </div>
+
+                <!-- Step 1: Pre-cadastro -->
+                <form id="step-1" class="step">
+                    <div class="step-header with-back">
+                        <button type="button" class="btn-back" id="btn-back-step1" title="Voltar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <div>
+                            <span class="step-badge" id="step1-badge">Etapa 1 de 2</span>
+                            <h2>Dados Iniciais</h2>
+                            <p class="subtitle">Precisamos de algumas informações básicas para começar.</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como você gostaria de ser chamado?" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group half">
+                            <label for="celular">Celular (WhatsApp)</label>
+                            <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000" maxlength="15" minlength="14" required>
+                        </div>
+                        
+                        <div class="input-group half">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="btn-primary" id="btn-continue">
+                            Continuar
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Step 2: Currículo -->
+                <form id="step-2" class="step">
+                    <div class="step-header with-back">
+                        <button type="button" class="btn-back" id="btn-back" title="Voltar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <div>
+                            <span class="step-badge">Etapa 2 de 2</span>
+                            <h2>Seu Perfil</h2>
+                            <p class="subtitle">Como você prefere nos enviar as suas informações? (Selecione uma ou mais opções)</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="area">Área Principal de Interesse</label>
+                        <select id="area" name="area" required>
+                            <option value="" disabled selected>Selecione o setor principal...</option>
+                            <option value="administrativo">Administrativo</option>
+                            <option value="coordenacao">Coordenação Pedagógica / Direção</option>
+                            <option value="corpo-docente">Corpo Docente</option>
+                            <option value="apoio">Apoio Operacional</option>
+                            <option value="ti">Tecnologia da Informação (TI)</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <!-- Container para as Tags de Subcategoria -->
+                    <div class="input-group subarea-container" id="subarea-container" style="display: none;">
+                        <label>Especialidade / Vertente <span style="font-weight:normal; font-size: 0.85rem; color:var(--text-muted);">(Opcional)</span></label>
+                        <div class="subarea-tags" id="subarea-tags">
+                            <!-- Tags renderizadas via JS -->
+                        </div>
+                        <input type="hidden" id="subarea" name="subarea" value="">
+                    </div>
+
+                    <!-- Múltipla Escolha -->
+                    <div class="options-container">
+                        <label class="option-card">
+                            <input type="checkbox" id="check-pdf" value="pdf">
+                            <div class="option-card-content">
+                                <strong>Anexar PDF</strong>
+                                <span>Envie seu currículo tradicional</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" id="check-linkedin" value="linkedin">
+                            <div class="option-card-content">
+                                <strong>Perfil do LinkedIn</strong>
+                                <span>Conecte-se para importar dados</span>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" id="check-write" value="write">
+                            <div class="option-card-content">
+                                <strong>Responder Perguntas</strong>
+                                <span>Conte-nos mais sobre você</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Sessões Dinâmicas -->
+                    <div id="section-pdf" class="dynamic-section" style="display: none;">
+                        <h3>Currículo em PDF</h3>
+                        <div class="file-drop-area">
+                            <div class="file-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                            </div>
+                            <span class="file-msg">Arraste seu arquivo PDF aqui<br>ou <strong>clique para buscar</strong></span>
+                            <input type="file" class="file-input" id="curriculo-pdf" accept=".pdf">
+                        </div>
+                    </div>
+
+                    <div id="section-linkedin" class="dynamic-section" style="display: none;">
+                        <h3>Perfil Profissional</h3>
+                        <div class="linkedin-input-wrapper" style="position: relative; margin-top: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0a66c2" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%);"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <input type="url" id="linkedin-url" placeholder="https://linkedin.com/in/seu-perfil" style="width: 100%; padding: 14px 16px 14px 48px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; outline: none; transition: border-color 0.3s; color: #1e293b; background: #fff;" onfocus="this.style.borderColor='#0a66c2'" onblur="this.style.borderColor='#e2e8f0'">
+                        </div>
+                        <p style="font-size: 13px; color: #64748b; margin-top: 8px; text-align: left;">Copie e cole o link direto da sua página do LinkedIn.</p>
+                    </div>
+
+                    <div id="section-write" class="dynamic-section" style="display: none;">
+                        <h3>Questionário</h3>
+                        <div class="input-group">
+                            <label>Um breve resumo sobre quem é você.</label>
+                            <textarea id="q1" rows="3" placeholder="Sua resposta..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Suas principais experiências na área da educação (ou correlatas).</label>
+                            <textarea id="q2" rows="3" placeholder="Sua resposta..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>O que te motiva a querer fazer parte do Colégio Rodin?</label>
+                            <textarea id="q3" rows="3" placeholder="Sua resposta..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Quais são as suas maiores habilidades?</label>
+                            <textarea id="q4" rows="3" placeholder="Sua resposta..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Espaço Livre (Opcional)</label>
+                            <textarea id="q5" rows="4" placeholder="Sinta-se à vontade para adicionar qualquer outra informação que julgar importante..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="actions mt-4">
+                        <button type="submit" class="btn-primary w-full" id="btn-submit">Enviar Candidatura</button>
+                    </div>
+                </form>
+
+                <!-- Step 3: Success -->
+                <div id="step-success" class="step text-center">
+                    <div class="success-illustration">
+                        <div class="success-icon-large">✓</div>
+                    </div>
+                    <h2>Inscrição Concluída!</h2>
+                    <p>Recebemos suas informações com sucesso para o setor <strong><span id="success-area"></span></strong>. Nossa equipe de talentos analisará seu perfil e entrará em contato em breve.</p>
+                    
+                    <div class="success-summary">
+                        <h4>Itens enviados:</h4>
+                        <ul id="success-items">
+                            <!-- Items dinâmicos -->
+                        </ul>
+                    </div>
+
+                    <button class="btn-outline mt-4" onclick="location.reload()">Enviar novo currículo</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'HelveticaNeueLT';
+  src: url('/fontes/HELVETICANEUELTSTD-HVEX.OTF') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLT';
+  src: url('/fontes/HELVETICANEUELTSTD-ROMAN.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hesterica';
+  src: url('/fontes/Hesterica.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --rodin-orange: #FF5A00;
+  --rodin-black: #1A1A1A;
+  --rodin-gray: #4A4A4A;
+  --rodin-light: #F5F5F5;
+  --rodin-white: #FFFFFF;
+  
+  --font-headline: 'HelveticaNeueLT', Helvetica, Arial, sans-serif;
+  --font-subheadline: 'Hesterica', Helvetica, Arial, sans-serif;
+  --font-body: 'HelveticaNeueLT', Helvetica, Arial, sans-serif;
+
+  /* Typography Scale Padronizada */
+  --fs-hero-title: clamp(3rem, 8vw, 6rem);
+  --fs-section-title: clamp(2.5rem, 5vw, 3.5rem);
+  --fs-card-title: 1.2rem;
+  --fs-card-desc: 0.9rem;
+  --fs-body: 1rem;
+  --fs-button: 0.9rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--rodin-white);
+  color: var(--rodin-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Ocultar barra de rolagem nativa */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-hero-title: 3.5rem; /* Ajustado para nǜo quebrar na tela pequena */
+    --fs-section-title: 2.2rem;
+  }
+}
+
+
+@media (max-width: 768px) { [class*="thumbnailLayer"] { background-position: var(--bg-pos-mobile, center) !important; } }

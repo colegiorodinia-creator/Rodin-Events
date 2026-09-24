@@ -1,0 +1,275 @@
+.teamSection {
+  background-color: var(--rodin-orange);
+  padding: 10vh 5vw; /* Meio termo perfeito: reduz as margens gordas de 10vw, mas mantém uma borda segura para não encostar na tela */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-headline);
+  font-size: var(--fs-section-title);
+  color: var(--rodin-white);
+  text-transform: uppercase;
+  margin-bottom: 5vh;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  flex: 1;
+  max-width: 1400px; /* Limite generoso para telas muito largas */
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.png'); background-size: cover; background-position: center; background-attachment: fixed;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  aspect-ratio: 9 / 16; /* Retornado para 9/16 */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%; /* Aumentado para 95% para a foto preencher quase todo o card */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  transform-origin: center;
+}
+
+.cardContent {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 1.2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Força o texto para o rodapé */
+  flex-grow: 1;
+  gap: 0.2rem;
+  color: white;
+}
+
+.name {
+  font-family: var(--font-headline);
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--rodin-white);
+}
+
+.role {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff5a00;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  margin-top: 10px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.arrowLeft, .arrowRight {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrowLeft:hover, .arrowRight:hover {
+  transform: scale(1.1);
+}
+
+.arrowLeft svg, .arrowRight svg {
+  width: 40px;
+  height: 40px;
+}
+
+.viewMore {
+  background-color: transparent;
+  color: var(--rodin-white);
+  border: 1px solid var(--rodin-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: var(--fs-button);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconArrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Inverte as cores da seta quando passar o mouse no botão */
+.viewMore circle, .viewMore path {
+  transition: fill 0.3s ease;
+}
+
+.viewMore:hover {
+  background-color: var(--rodin-white);
+  color: var(--rodin-orange);
+}
+
+.viewMore:hover .iconArrow circle {
+  fill: var(--rodin-orange);
+}
+
+.viewMore:hover .iconArrow path {
+  fill: var(--rodin-white);
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    aspect-ratio: 1 / 1.15;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamSection {
+    padding: 10vh 2vw; 
+    min-height: 100vh; /* Garante que a seção ocupe a tela inteira do celular */
+    justify-content: center; /* Centraliza tudo verticalmente na tela */
+  }
+  
+  .carouselContainer {
+    gap: 0.5rem; /* Diminui o buraco entre as setas e o card para ele poder alargar */
+    margin-bottom: 2rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    aspect-ratio: auto; min-height: 142vw;
+    width: 100%; 
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.mobileLayout { display: none; }
+.desktopLayout { display: flex; }
+@media (max-width: 768px) {
+  .desktopLayout { display: none !important; }
+  .mobileLayout { display: flex !important; }
+  .mobileCardsScroll {
+    width: 100vw;
+    margin-left: -2vw; /* Compensate for the 2vw padding of the parent */
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 5vw;
+    padding: 0 10vw; /* Keep cards slightly peekable */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .mobileCardsScroll::-webkit-scrollbar { display: none; }
+  .mobileLayout .card { flex: 0 0 80vw; scroll-snap-align: center; }
+}
+
+.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.expanded {
+  display: block;
+}
+
+.readMoreBtn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--rodin-orange);
+  cursor: pointer;
+  margin-top: 5px;
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.readMoreBtn:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1025px) {
+  .readMoreBtn {
+    display: none !important;
+  }
+  .clamped {
+    -webkit-line-clamp: 5 !important;
+    display: block !important;
+  }
+}
+@media (max-width: 768px) {
+  .clamped {
+    -webkit-line-clamp: 2 !important;
+  }
+}

@@ -1,0 +1,268 @@
+.pageContainer {
+  padding: 120px 20px 60px;
+  max-width: 900px; /* Reduzido para revelar as estátuas no fundo com 3 colunas */
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards por linha conforme solicitado */
+  gap: 2rem; /* Igual ao Cursos */
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.png'); background-size: cover; background-position: center; background-attachment: fixed;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  aspect-ratio: 9 / 16; /* Proporção exata dos cards de Cursos */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%; /* Aumentado para preencher a tela */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05); /* Zoom leve para evitar bordas vazias */
+  transform-origin: center;
+}
+
+.cardContent {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 1.2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Textos sempre no rodapé */
+  flex-grow: 1;
+  gap: 0.2rem;
+  color: white;
+}
+
+.name {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.role {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff5a00;
+  margin: 0;
+  margin-bottom: 0.3rem;
+  line-height: 1.1;
+}
+
+.formation {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Elementos decorativos nas laterais */
+.leftDecorator {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50vw;
+  height: 85vh;
+  background-image: url('/pensador_aluno_cut.png');
+  background-size: auto 100%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.42; /* Um pouco mais claro conforme solicitado */
+  mix-blend-mode: multiply; /* Retorna o efeito que tira o branco */
+  pointer-events: none;
+  /* Apaga suavemente a metade direita do container para esconder o "fantasma" do aluno */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 50%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 50%);
+}
+
+.rightDecorator {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 50vw;
+  height: 85vh;
+  background-image: url('/pensador_aluno_cut.png');
+  background-size: auto 100%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.42; /* Um pouco mais claro conforme solicitado */
+  mix-blend-mode: multiply; /* Retorna o efeito que tira o branco */
+  pointer-events: none;
+  /* Apaga suavemente a metade esquerda do container para esconder o "fantasma" do pensador */
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 50%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 50%);
+}
+
+@media (max-width: 1400px) {
+  .leftDecorator { left: -5vw; }
+  .rightDecorator { right: -5vw; }
+}
+@media (max-width: 1200px) {
+  .leftDecorator, .rightDecorator {
+    opacity: 0.3;
+  }
+}
+@media (max-width: 768px) {
+  .leftDecorator, .rightDecorator {
+    display: none;
+  }
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  transform: scale(1.1);
+}
+
+.backButton svg {
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .name {
+    font-size: 1.3rem;
+  }
+  .role {
+    font-size: 0.95rem;
+  }
+  .formation {
+    font-size: 0.85rem;
+  }
+}
+
+/* Click to expand styles */
+.card {
+  cursor: pointer;
+}
+
+.expanded .imageWrapper {
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+.expanded .cardContent {
+  background: rgba(0, 0, 0, 0.75);
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.expanded .formation {
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow-y: auto;
+  max-height: 100%;
+  padding-right: 5px; /* for scrollbar */
+}
+
+/* Customize scrollbar for formation when expanded */
+.expanded .formation::-webkit-scrollbar {
+  width: 4px;
+}
+.expanded .formation::-webkit-scrollbar-thumb {
+  background: var(--rodin-orange);
+  border-radius: 4px;
+}
+
+.clickHint {
+  font-size: 0.7rem;
+  color: #ff5a00;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.expanded .clickHint {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .clickHint {
+    display: none !important;
+  }
+  .formation {
+    -webkit-line-clamp: 5 !important;
+    display: block !important;
+  }
+  .card {
+    pointer-events: none; /* Disable click to expand on desktop since it's already expanded */
+  }
+}
+
+@media (max-width: 768px) {
+  .formation {
+    -webkit-line-clamp: 2 !important;
+  }
+}

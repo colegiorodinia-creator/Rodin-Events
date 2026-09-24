@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "n8n-mcp": {
+      "type": "http",
+      "url": "https://jusantos.app.n8n.cloud/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMTFiNzFiMC0wYzZlLTRjODUtYmEzMS05MzdhMzBmNmE1MjIiLCJpc3MiOiJuOG4iLCJhdWQiOiJtY3Atc2VydmVyLWFwaSIsImp0aSI6IjM1ZjIwNDNiLTk4MjctNGM2YS05OWVlLWEwYzAxMzQxOTM2OSIsImlhdCI6MTc4MTE5MTM3N30.O6T9fnLFls5iTd5h1V77jrnjj-Zn6a-CO-szjMTF3wk"
+      }
+    }
+  }
+}

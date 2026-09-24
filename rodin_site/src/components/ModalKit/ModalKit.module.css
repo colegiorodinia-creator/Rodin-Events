@@ -1,0 +1,141 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background-color: var(--rodin-white);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: var(--rodin-orange);
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  color: var(--rodin-emerald);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-family: var(--font-headline);
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.formGroup input, .formGroup select {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus, .formGroup select:focus {
+  outline: none;
+  border-color: var(--rodin-orange);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  background-color: var(--rodin-orange);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #d95e00;
+  transform: translateY(-2px);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.checkIcon {
+  font-size: 60px;
+  color: var(--rodin-orange);
+  margin-bottom: 20px;
+}
+
+.successMessage h2 {
+  font-family: var(--font-headline);
+  color: var(--rodin-emerald);
+  margin-bottom: 15px;
+}
+
+.successMessage p {
+  color: #666;
+  font-family: var(--font-body);
+  line-height: 1.5;
+}

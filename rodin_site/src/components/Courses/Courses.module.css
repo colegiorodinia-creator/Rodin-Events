@@ -1,0 +1,151 @@
+.coursesSection {
+  background-color: var(--rodin-white);
+  padding: 10vh 0; /* Removido padding lateral para nǭo interferir com o 100vw do wrapper no desktop/mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.sectionTitle {
+  font-family: var(--font-headline);
+  font-size: var(--fs-section-title);
+  color: var(--rodin-black);
+  text-transform: uppercase;
+  margin-bottom: 5vh;
+  font-weight: 900;
+  letter-spacing: -2px;
+  scroll-margin-top: 100px;
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.cardsGrid {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  max-width: 1150px; /* Aumentado para acomodar os 4 cards com mais espaço */
+}
+
+.card {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-15px) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%);
+  z-index: 2;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 3;
+  padding: 1.2rem; /* Diminuído para dar mais espaço horizontal para o texto */
+}
+
+.cardTitle {
+  font-family: var(--font-headline);
+  font-size: var(--fs-card-title);
+  color: var(--rodin-white);
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.cardSub {
+  font-family: var(--font-body);
+  font-size: var(--fs-card-desc);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.8rem; /* Reduzido para aproximar do botão */
+  font-weight: bold;
+}
+
+.saibaMais {
+  background-color: var(--rodin-orange);
+  color: var(--rodin-white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: var(--fs-button);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none; /* Garante que o link não tenha sublinhado */
+}
+
+.iconArrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+
+
+@media (max-width: 1024px) {
+  .carouselContainer {
+    width: 100vw;
+    overflow: hidden;
+  }
+  .cardsGrid {
+    flex-direction: row;
+    width: 100vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 7.5vw; /* Ajustado para centralizar o novo card de 85vw */
+    gap: 1.5rem;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+  }
+  .cardsGrid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  .card {
+    min-width: 85vw; /* Aumentado de 75vw para 85vw, o que aumenta a altura proporcionalmente */
+    scroll-snap-align: center;
+    aspect-ratio: 9 / 16; /* MantǸm vertical! */
+  }
+  .navButton {
+    display: flex; /* Mostra as setinhas no mobile */
+  }
+}
+
+.carouselWrapper { display: flex; align-items: center; width: 100vw; max-width: 100vw; position: relative;  } 
+.navButton { display: none; position: absolute; z-index: 10; background: var(--rodin-orange); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); } 
+.navButton svg { width: 24px; height: 24px; } 
+.navLeft { left: 1rem; } 
+.navRight { right: 1rem; }
+

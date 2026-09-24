@@ -1,0 +1,3 @@
+anon: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5Y2x0cWZtcnp4Y2R5dnN5cWRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNzUwMjksImV4cCI6MjA5Mzc1MTAyOX0.POjmm3yHJtgp57OIi9YNZcuUbhzkLBQxu4mMWfNm4as
+
+API URL: https://aycltqfmrzxcdyvsyqdc.supabase.co/rest/v1/

@@ -1,0 +1,431 @@
+.headerInitial {
+  position: fixed;
+  top: -15px; /* Valor negativo para forçar a subida além do limite da tela */
+  left: 0;
+  width: 100vw;
+  padding: 0 8vw 0 10vw; /* Ajustado para 8vw para achar o meio-termo ideal da direita */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  transition: opacity 0.5s ease;
+}
+
+.logoWrapperInitial {
+  display: flex;
+  align-items: center;
+}
+
+.logoMainInitial {
+  height: clamp(80px, 12vw, 140px);
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logoMainInitial:hover {
+  transform: scale(1.05);
+}
+
+.headerPill {
+  position: fixed;
+  top: 25px;
+  left: calc(10vw - 1.2rem);
+  width: calc(100vw - 18vw + 2.4rem);
+  max-width: none;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.3rem 1.2rem; 
+  z-index: 100;
+  
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Transições de Crossfade e FadeUp/Down */
+.hiddenFade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visibleFade {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hiddenFadePill {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+
+.visibleFadePill {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Esconde o cabeçalho quando um vídeo está tocando */
+.hideForVideoPill {
+  transform: translateY(-200%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.hideForVideoInitial {
+  transform: translateY(-200%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.hideForScroll {
+  transform: translateY(-200%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+
+.logoScrolledIcon {
+  height: 42px;
+  width: auto;
+  clip-path: inset(0 20% 0 0); 
+  transition: transform 0.3s ease;
+}
+
+.logoScrolledIcon:hover {
+  transform: scale(1.05);
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 0.8rem; 
+  align-items: center;
+  justify-content: center;
+}
+
+.nav a {
+  color: var(--rodin-white);
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  white-space: nowrap; 
+}
+
+.nav a:hover {
+  color: var(--rodin-orange);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 56px; 
+}
+
+.hamburgerContainer {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  z-index: 105;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.hamburgerContainer.initial {
+  top: -15px;
+  padding: 0 8vw 0 10vw;
+  height: clamp(80px, 12vw, 140px);
+}
+
+.hamburgerContainer.scrolled {
+  top: 25px;
+  padding: 0 8vw 0 10vw;
+  height: 52px;
+}
+
+.hamburgerContainer .hamburger {
+  pointer-events: auto;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px; 
+  height: 36px;
+  padding: 10px 8px;
+  box-sizing: border-box;
+  background-color: var(--rodin-orange);
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hamburger:hover {
+  background-color: #d1500f;
+  transform: scale(1.05);
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--rodin-white);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  box-shadow: none;
+}
+
+.header.scrolled .hamburger .line {
+  box-shadow: none;
+}
+
+/* OUTROS ESTILOS (Botão voltar, dropdown, etc) */
+.backButton {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--rodin-white);
+  color: var(--rodin-white);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 6px;
+}
+
+.backButton:hover {
+  background: var(--rodin-orange);
+  border-color: var(--rodin-orange);
+  transform: scale(1.05);
+}
+
+.radioBtn, .studentBtn {
+  background-color: transparent;
+  color: var(--rodin-white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.radioBtn:hover, .studentBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--rodin-white);
+}
+
+.studentBtn {
+  background-color: var(--rodin-orange);
+  border-color: var(--rodin-orange);
+}
+
+.studentBtn:hover {
+  background-color: #d1500f;
+  border-color: #d1500f;
+}
+
+.studentAreaDropdownWrapper {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.png'); background-size: cover; background-position: center; background-attachment: fixed;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownMenu a {
+  color: var(--rodin-white);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownMenu a:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: var(--rodin-orange);
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 6rem; /* Subiu para dar espaço ao WhatsApp */
+  right: 8vw; /* Alinhado com o menu hamburguer */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--rodin-orange);
+  color: var(--rodin-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.backToTop:hover {
+  transform: translateY(-5px);
+  background-color: var(--rodin-black);
+}
+
+.backToTop svg {
+  width: 30px;
+  height: 30px;
+}
+
+.whatsappBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 8vw; /* Alinhado com o menu hamburguer */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25D366; /* Verde WhatsApp */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-5px);
+  background-color: #1ebe57;
+}
+
+.whatsappBtn svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .headerPill {
+    width: 95%;
+  }
+  
+  /* Esconde os links e actions no mobile para dar espaço ao hamburger */
+  .nav, .actions {
+    display: none !important;
+  }
+}
+
+/* Inverted Hamburger Theme for Equipe Page */
+.invertedHamburger .hamburger {
+  background-color: var(--rodin-white);
+}
+
+.invertedHamburger .hamburger:hover {
+  background-color: #f0f0f0;
+}
+
+.invertedHamburger .hamburger .line {
+  background-color: var(--rodin-orange);
+}
+
+
+.backButtonGlobal {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButtonGlobal:hover {
+  transform: scale(1.1);
+}
+
+.backButtonGlobal svg {
+  width: 44px;
+  height: 44px;
+}
+
+
+@media (max-width: 768px) {
+  .headerInitial {
+    top: -15px;
+    padding: 0 1.5rem;
+  }
+  .hamburgerContainer.initial {
+    top: 5px; 
+    padding: 0 1.5rem;
+  }
+  .logoMainInitial {
+    height: 85px !important; /* Reduzido para n�o pegar nas palavras do Hero */
+  }
+}
+
+@media (max-width: 768px) {
+  .backToTop { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { 
+    background-color: rgba(220, 220, 220, 0.6) !important; 
+    backdrop-filter: blur(5px);
+    padding: 10px 8px !important;
+  }
+  .hamburger .line { 
+    background-color: var(--rodin-black) !important; 
+  }
+}

@@ -1,0 +1,393 @@
+﻿.eventSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center; /* Centraliza o carrossel verticalmente */
+  justify-content: space-between; /* Carrossel na esquerda, texto na direita */
+  padding: 10vh 10vw;
+  overflow: hidden;
+}
+
+.sectionLabel {
+  font-family: var(--font-headline);
+  font-size: 1.2rem;
+  color: var(--rodin-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.bgContainer {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: 1;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-desktop);
+  background-size: cover;
+  background-position: center;
+}
+
+.bgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bigPlayButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.bigPlayButton svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px; /* Compensa o peso visual do triÃ¢ngulo para parecer centrado */
+}
+
+.bigPlayButton:hover {
+  background-color: var(--rodin-orange);
+  border-color: var(--rodin-orange);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* Gradiente duplo: escurece a base (para o botÃ£o) e o topo (para o tÃ­tulo) */
+  background: 
+    linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%),
+    linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 30%);
+  z-index: 2;
+  pointer-events: none; /* Deixa o clique passar */
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  text-align: right; /* Alinha o texto Ã  direita */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end; /* Move o bloco inteiro para a parte inferior do conteiner */
+  pointer-events: none;
+}
+
+.textBlock {
+  transition: opacity 0.5s ease;
+  pointer-events: auto; /* Reativa cliques apenas nos textos */
+}
+
+.textBlock.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: var(--fs-section-title); /* Fonte um pouco menor */
+  color: var(--rodin-white);
+  line-height: 1.1;
+  font-weight: bold;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 60;
+  pointer-events: auto;
+  margin-top: 80px; /* Desce o carrossel para nÃ£o ficar embaixo da Ã¡rea de clique do logo no topo esquerdo */
+}
+
+.thumbsGridWrapper {
+  height: calc((70px * 4) + (8px * 3)); /* Exatos 4 thumbs de 70px + 3 gaps de 8px */
+  overflow: hidden;
+  position: relative;
+  padding: 4px 0; /* EspaÃ§o pro hover/border nÃ£o cortar */
+  margin: -4px 0;
+}
+
+.thumbsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 8px exatos para facilitar o cÃ¡lculo do translateY */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateY(calc(var(--start-index, 0) * -78px));
+}
+
+.thumb {
+  position: relative; /* Isso impede o overlay do play de vazar para fora */
+  width: 105px;
+  height: 70px;
+  flex-shrink: 0; /* Impede que os thumbs sejam esmagados no flex horizontal */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Garante que as bordas arredondadas segurem a mÃ¡scara preta */
+}
+
+.thumbVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.thumb:hover, .activeThumb {
+  border-color: var(--rodin-orange);
+  transform: scale(1.05);
+}
+
+.playIconOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  color: white;
+}
+
+.playIconOverlay svg {
+  width: 24px;
+  height: 24px;
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover:not(.disabled) {
+  transform: scale(1.1);
+}
+
+.arrow.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.arrow svg {
+  width: 32px;
+  height: 32px;
+}
+
+.watchButton {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 10px 24px;
+  background-color: var(--rodin-orange);
+  color: var(--rodin-white);
+  font-family: var(--font-headline);
+  font-size: var(--fs-button);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.watchButton:hover {
+  background-color: #d95e00;
+  transform: translateY(-2px);
+}
+
+.iconPrev {
+  transform: rotate(-90deg); /* Aponta para cima no desktop */
+}
+.iconNext {
+  transform: rotate(90deg); /* Aponta para baixo no desktop */
+}
+
+/* ===== DESKTOP vs MOBILE LAYOUT TOGGLE ===== */
+.mobileLayout {
+  display: none;
+}
+.desktopLayout {
+  display: contents;
+}
+
+.desktopBr {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktopLayout {
+    display: none;
+  }
+  
+  .desktopBr {
+    display: none;
+  }
+  
+  .eventSection {
+    height: auto;
+    min-height: 100vh;
+    background-color: var(--rodin-white); /* Fundo branco conforme pedido (texto preto) */
+    padding: 8vh 0 10vh 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .mobileLayout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mobileSectionTitle {
+    font-family: var(--font-headline);
+    font-size: var(--fs-section-title);
+    color: var(--rodin-orange);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .mobileCardsScroll {
+    display: flex;
+    align-items: stretch; /* Garante que todos os cards tenham a mesma altura (a do maior) */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 5vw;
+    padding: 0 7.5vw;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .mobileCardsScroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobileCard {
+    flex: 0 0 85vw; /* Ocupa 85% da tela, deixando a beiradinha da prÃ³xima Ã  mostra */
+    height: 100%; /* Ocupa 100% do container flex stretched */
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobileCardImg {
+    width: 100%;
+    aspect-ratio: 9/16; /* MantÃ©m a verticalidade da foto */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px; /* Bordas arredondadas como na inspiraÃ§Ã£o */
+    margin-bottom: 0.5rem; /* Reduzido para subir o tÃ­tulo e o botÃ£o */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .mobileCardTitle {
+    color: var(--rodin-black); 
+    font-family: var(--font-subheadline); /* Fonte Cursiva/Desenhada (Hesterica) */
+    font-size: 2.8rem; /* Letras cursivas precisam ser bem maiores para dar leitura */
+    font-weight: normal; 
+    text-transform: none; /* Cursiva nunca pode ser toda maiÃºscula senÃ£o fica ilegÃ­vel */
+    letter-spacing: normal;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    min-height: 100px; /* Reduzido para nÃ£o gerar tanto vazio, mas o suficiente pra 2 linhas */
+    display: flex;
+    align-items: flex-start; /* Alinha os textos sempre pelo topo, deixando o vazio pro botÃ£o */
+    justify-content: center;
+  }
+
+  .mobileWatchButton {
+    background-color: var(--rodin-orange);
+    color: var(--rodin-white);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    margin-top: auto; /* Empurra o botÃ£o pro final do card pra todos ficarem alinhados perfeitamente */
+  }
+}
+.mobileCardImg {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobileCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem 1rem;
+  z-index: 10;
+}
+
+.mobileCardTitle {
+  color: var(--rodin-white) !important;
+  text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
+  min-height: auto !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.mobileWatchButton {
+  width: 100% !important;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+}
+
+

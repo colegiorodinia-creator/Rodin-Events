@@ -1,0 +1,1 @@
+Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Bitmap]::FromFile('C:/Users/equip/.gemini/antigravity/brain/d753e09a-a579-4841-8c16-465af6c1edd3/.user_uploaded/media_1787946542138.png'); $img.MakeTransparent([System.Drawing.Color]::White); $img.Save('src/app/icon.png', [System.Drawing.Imaging.ImageFormat]::Png); $img.Dispose();

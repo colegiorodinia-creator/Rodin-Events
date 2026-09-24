@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área RH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png?v=3">
+    <link rel="stylesheet" href="dashboard.css?v=3">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header" style="padding: 15px 24px 5px 24px; display: flex; justify-content: center;">
+                <img src="logo.png" alt="Colégio Rodin" style="width: 170px; height: auto; object-fit: contain; margin: -10px 0;">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-target="view-painel">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Painel Geral
+                </a>
+                <a href="#" class="nav-item" data-target="view-vagas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Vagas Disponíveis
+                </a>
+                <a href="#" class="nav-item" data-target="view-historico">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Histórico de Currículos
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">RH</div>
+                    <div class="user-info">
+                        <span class="user-name">Equipe Rodin</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                </div>
+                <button onclick="logout()" style="width: 100%; margin-top: 15px; padding: 10px; background: none; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-muted); cursor: pointer; transition: all 0.3s; font-family: inherit; font-size: 0.9rem;">
+                    Sair do Sistema
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Buscar candidatos por nome, email ou setor...">
+                </div>
+                <div class="topbar-actions">
+                    <!-- Ações removidas a pedido do usuário -->
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                
+                <!-- VIEW: PAINEL GERAL -->
+                <div id="view-painel" class="view-section active">
+                    <div class="page-header">
+                    <h1>Visão Geral de Talentos</h1>
+                    <p>Gerencie os currículos recebidos e o andamento dos processos seletivos.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orange-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total de Currículos</h3>
+                            <div class="stat-value" id="stat-total">0</div>
+                            <span class="stat-trend neutral">Aguardando novos envios</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue-light">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0077b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Aprovados p/ Entrevista</h3>
+                            <div class="stat-value" id="stat-interview">0</div>
+                            <span class="stat-trend neutral">Estável</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters and Table -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <h2>Currículos enviados na última semana</h2>
+                        <!-- Filtros removidos a pedido do usuário -->
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="candidates-table">
+                            <thead>
+                                <tr>
+                                    <th>Candidato</th>
+                                    <th>Setor Desejado</th>
+                                    <th>Formato</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="candidates-body">
+                                <!-- Preenchido via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <span class="page-info">Mostrando 0 de 0</span>
+                        <div class="page-controls">
+                            <button class="page-btn" disabled>&lt;</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn" disabled>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+                </div> <!-- END VIEW PAINEL GERAL -->
+
+                <!-- VIEW: HISTÓRICO DE CURRÍCULOS (PASTAS) -->
+                <div id="view-historico" class="view-section" style="display: none;">
+                    <div class="page-header">
+                        <h1>Arquivos por Setor</h1>
+                        <p>Selecione uma pasta para visualizar os candidatos daquele setor.</p>
+                    </div>
+                    
+                    <div class="folder-grid" id="sectors-grid">
+                        <!-- Pastas inseridas via JS -->
+                    </div>
+                </div>
+
+                <!-- VIEW: HISTÓRICO DE CURRÍCULOS (LISTA DO SETOR) -->
+                <div id="view-historico-setor" class="view-section" style="display: none;">
+                    <div class="page-header">
+                        <button class="btn-outline-small" id="btn-voltar-pastas" style="margin-bottom: 15px;">← Voltar para Pastas</button>
+                        <h1 id="historico-setor-title">Setor: -</h1>
+                        <p>Visualizando currículos filtrados por setor.</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h2>Candidatos do Setor</h2>
+                            <div class="filters">
+                                <select id="status-filter-history" class="filter-select">
+                                    <option value="all">Todos os Status</option>
+                                    <option value="Novo">Novo</option>
+                                    <option value="Em Análise">Em Análise</option>
+                                    <option value="Entrevista">Entrevista</option>
+                                    <option value="Rejeitado">Rejeitado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="candidates-table">
+                                <thead>
+                                    <tr>
+                                        <th>Candidato</th>
+                                        <th>Formato</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="candidates-body-history">
+                                    <!-- Preenchido via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> <!-- END VIEW HISTÓRICO SETOR -->
+
+                <!-- VIEW: VAGAS DISPONÍVEIS -->
+                <div id="view-vagas" class="view-section" style="display: none;">
+                    <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div>
+                            <h1>Dashboard de Vagas</h1>
+                            <p>Crie e gerencie as oportunidades abertas na escola.</p>
+                        </div>
+                        <button class="btn-primary-small" id="btn-add-vaga">+ Nova Vaga</button>
+                    </div>
+
+                    <!-- Dashboard Stats para Vagas -->
+                    <div class="stats-grid" style="margin-bottom: 30px;">
+                        <div class="stat-card">
+                            <div class="stat-icon green-light">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Vagas Ativas</h3>
+                                <div class="stat-value" id="stat-vagas-ativas">0</div>
+                                <span class="stat-trend neutral">Oportunidades em aberto</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange-light">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Novas Candidaturas</h3>
+                                <div class="stat-value" id="stat-vagas-hoje">14</div>
+                                <span class="stat-trend neutral">Nos últimos 7 dias</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 10px;">Mural de Vagas (Post-its)</h2>
+                    <div class="post-it-grid" id="vagas-grid">
+                        <!-- Post-its de vagas inseridos via JS -->
+                    </div>
+                </div> <!-- END VIEW VAGAS -->
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Detalhes do Candidato -->
+    <div class="modal-overlay" id="candidate-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            
+            <div class="modal-header">
+                <div class="candidate-profile-large">
+                    <div class="avatar-large" id="modal-avatar">JC</div>
+                    <div class="candidate-info-large">
+                        <h2 id="modal-name">João Carlos Silva</h2>
+                        <p id="modal-email">joao.carlos@email.com • (11) 98765-4321</p>
+                    </div>
+                </div>
+                <div class="candidate-actions">
+                    <button class="btn-outline-small" id="btn-modal-baixar-pdf" style="display: none;">Baixar PDF</button>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="info-group" style="margin-bottom: 20px;">
+                    <h3>Setor de Interesse</h3>
+                    <div class="sector-badge modal-badge" id="modal-sector">Corpo Docente</div>
+                </div>
+                
+                <div class="info-group" style="margin-bottom: 20px;">
+                    <h3>Formas de Envio</h3>
+                    <div id="modal-format-badges" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+                </div>
+                
+                <div class="info-group" id="group-resume" style="display: none; margin-top: 10px;">
+                    <div id="modal-resume" class="text-content" style="display: flex; flex-direction: column; gap: 15px; border: none; padding: 0; background: transparent;">
+                        <!-- Injetado dinamicamente via app.js -->
+                    </div>
+                </div>
+                
+                <div class="info-group" id="group-motivation" style="display: none;">
+                    <h3>Motivação (Colégio Rodin)</h3>
+                    <p id="modal-motivation" class="text-content">
+                        Admiro a infraestrutura...
+                    </p>
+                </div>
+
+                <div class="info-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h3>Observações / Notas do RH</h3>
+                        <button id="btn-save-notes" class="btn-primary-small" style="padding: 6px 12px; font-size: 0.8rem; display: none;">Salvar Nota</button>
+                    </div>
+                    <textarea id="modal-notes" class="text-content" style="width: 100%; min-height: 100px; border: 1px solid var(--border-color); border-radius: 8px; resize: vertical; padding: 12px; font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.3s;" placeholder="Adicione observações sobre a entrevista, pontos fortes, etc..."></textarea>
+                </div>
+
+                <div class="info-group">
+                    <div style="display: flex; gap: 15px;">
+                        <div style="flex: 1;">
+                            <h3>Status Atual</h3>
+                            <select class="status-select-inline" id="modal-status">
+                                <option value="Novo">Novo</option>
+                                <option value="Em Análise">Em Análise</option>
+                                <option value="Entrevista">Entrevista</option>
+                                <option value="Rejeitado">Rejeitado</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3>Vincular à Vaga</h3>
+                            <select class="status-select-inline" id="modal-vaga" style="border-color: var(--primary-orange); color: var(--primary-orange);">
+                                <option value="">Nenhuma</option>
+                                <!-- Injetado via app.js -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Nova Vaga -->
+    <div class="modal-overlay" id="vaga-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <button class="modal-close" id="close-vaga-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 20px;">
+                <h2>Adicionar Nova Vaga</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Preencha os dados abaixo para criar um novo post-it de vaga.</p>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Título da Vaga <span style="color: red;">*</span></label>
+                    <input type="text" id="nova-vaga-titulo" placeholder="Ex: Professor(a) de História" style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.3s;" required>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Sobre a vaga <span style="color: red;">*</span></label>
+                    <textarea id="nova-vaga-sobre" rows="2" placeholder="Resumo sobre a oportunidade..." style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;" required></textarea>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div class="input-group" style="flex: 1;">
+                        <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Local <span style="color: red;">*</span></label>
+                        <input type="text" id="nova-vaga-local" placeholder="Ex: Presencial - Indaiatuba" style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; outline: none;" required>
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Função <span style="color: red;">*</span></label>
+                        <input type="text" id="nova-vaga-funcao" placeholder="Ex: Corpo Docente" style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; outline: none;" required>
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Principais Responsabilidades <span style="color: red;">*</span></label>
+                    <textarea id="nova-vaga-responsabilidades" rows="3" placeholder="Quais serão as responsabilidades do dia a dia?" style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;" required></textarea>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Habilidades Que Você Precisa <span style="color: red;">*</span></label>
+                    <textarea id="nova-vaga-habilidades" rows="3" placeholder="Requisitos, formação, competências necessárias..." style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;" required></textarea>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">O Que Faz Destacar <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 400;">(opcional)</span></label>
+                    <textarea id="nova-vaga-destaque" rows="2" placeholder="Diferenciais, conhecimentos extras..." style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;"></textarea>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Nossos principais benefícios <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 400;">(opcional)</span></label>
+                    <textarea id="nova-vaga-beneficios" rows="2" placeholder="Ex: Vale transporte, plano de saúde, etc..." style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; outline: none;"></textarea>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px;">
+                        <label style="font-weight: 500; font-size: 0.9rem; color: var(--text-main);">Sobre o Colégio Rodin <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 400;">(Texto Padrão)</span></label>
+                        <button type="button" id="btn-save-default-text" style="background: none; border: none; color: var(--primary-orange); font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: underline;">Salvar como novo padrão</button>
+                    </div>
+                    <textarea id="nova-vaga-textopadrao" rows="3" style="width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 0.95rem; resize: vertical; outline: none;"></textarea>
+                </div>
+
+                <button class="btn-primary-small" id="btn-salvar-vaga" style="width: 100%; padding: 14px; font-size: 1.05rem; border-radius: 8px; position: sticky; bottom: -1px; z-index: 10;">Criar Vaga</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Ver Vaga Completa -->
+    <div class="modal-overlay" id="view-vaga-modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close" id="close-view-vaga-modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+                <h2 id="view-vaga-title">Título da Vaga</h2>
+                <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">
+                    <span id="view-vaga-local"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Local</span>
+                    <span id="view-vaga-funcao"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Função</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1rem; color: var(--text-main); margin-bottom: 8px;">Sobre a vaga</h3>
+                    <p id="view-vaga-sobre" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; white-space: pre-wrap;"></p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1rem; color: var(--text-main); margin-bottom: 8px;">Principais Responsabilidades</h3>
+                    <p id="view-vaga-responsabilidades" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; white-space: pre-wrap;"></p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 1rem; color: var(--text-main); margin-bottom: 8px;">Habilidades Que Você Precisa</h3>
+                    <p id="view-vaga-habilidades" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; white-space: pre-wrap;"></p>
+                </div>
+
+                <div id="view-vaga-destaque-container" style="margin-bottom: 20px; display: none;">
+                    <h3 style="font-size: 1rem; color: var(--text-main); margin-bottom: 8px;">O Que Faz Destacar</h3>
+                    <p id="view-vaga-destaque" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; white-space: pre-wrap;"></p>
+                </div>
+
+                <div id="view-vaga-beneficios-container" style="margin-bottom: 20px; display: none;">
+                    <h3 style="font-size: 1rem; color: var(--text-main); margin-bottom: 8px;">Nossos principais benefícios</h3>
+                    <p id="view-vaga-beneficios" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; white-space: pre-wrap;"></p>
+                </div>
+
+                <div style="background-color: var(--bg-color); padding: 15px; border-radius: 8px; font-size: 0.9rem; color: var(--text-muted); border: 1px dashed var(--border-color); margin-bottom: 10px;">
+                    <h3 style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 8px;">Sobre o Colégio Rodin</h3>
+                    <p id="view-vaga-textopadrao" style="white-space: pre-wrap;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=7"></script>
+</body>
+</html>
