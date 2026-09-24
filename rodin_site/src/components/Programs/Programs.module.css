@@ -354,3 +354,50 @@
     pointer-events: none !important;
   }
 }
+@media (max-width: 1024px) {
+  .tiktokTrack { 
+    height: auto !important; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    align-items: center !important;
+    padding: 2rem 0 !important;
+  }
+  .tiktokSection { 
+    position: relative !important; 
+    top: auto !important; 
+    left: auto !important; 
+    width: 90vw !important;
+    height: 75vh !important;
+    margin-bottom: 2.5rem !important;
+    border-radius: 25px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+    overflow: hidden !important;
+  }
+  .iframeWrapper {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .videoOverlay {
+    width: 100% !important;
+    height: 100% !important;
+    padding-bottom: 5% !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%) !important;
+  }
+  .title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: auto !important;
+  }
+  .desc {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .exploreButton {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: 50px !important;
+  }
+}
