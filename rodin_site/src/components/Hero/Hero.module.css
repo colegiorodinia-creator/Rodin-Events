@@ -1,4 +1,4 @@
-.heroContainer {
+﻿.heroContainer {
   position: relative;
   width: 100%;
   background-color: var(--rodin-white);
@@ -37,9 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/cursos/capa.png');
-  background-size: cover;
-  background-position: center;
+  /* background moved to next/image */
   transform: scale(1.15); /* Zoom para aproximar a foto */
   z-index: 1;
 }
@@ -47,7 +45,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  /* Gradiente escuro na esquerda (para o texto) e totalmente transparente na direita a partir dos 60% para não escurecer a garota */
+  /* Gradiente escuro na esquerda (para o texto) e totalmente transparente na direita a partir dos 60% para nÃ£o escurecer a garota */
   background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0) 60%);
   z-index: 2;
 }
@@ -65,7 +63,7 @@
   position: relative;
   z-index: 3;
   max-width: 800px;
-  margin-top: 12vh; /* Afasta visualmente do cabeçalho para centralizar na área útil da tela */
+  margin-top: 12vh; /* Afasta visualmente do cabeÃ§alho para centralizar na Ã¡rea Ãºtil da tela */
 }
 
 .subtitle {
@@ -160,9 +158,7 @@
     align-items: center; 
     text-align: center;
   }
-  .bgImage {
-    background-position: 83% center !important; 
-  }
+  .nextHeroImage { object-position: 83% center !important; }
   /* O gradiente escurece as duas pontas: topo e fundo para dar leitura na letra branca */
   .overlay { 
     background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.7) 100%); 
@@ -202,3 +198,4 @@
 
 
 .desktopBr { display: block; }
+

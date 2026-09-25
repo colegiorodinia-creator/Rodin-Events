@@ -1,6 +1,7 @@
-"use client";
+﻿"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -17,7 +18,7 @@ export default function Hero() {
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
-    // Executa a anima��o de zoom e overlay APENAS em telas maiores que 768px (Desktop)
+    // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
     mm.add("(min-width: 769px)", () => {
       gsap.fromTo(heroRef.current,
         { scale: 1 },
@@ -60,7 +61,7 @@ export default function Hero() {
           
           {/* Background */}
           <div className={styles.bgWrapper}>
-            <div className={styles.bgImage}></div>
+            <div className={styles.bgImage}><Image src="/cursos/capa.png" alt="Colégio Rodin" priority fill sizes="100vw" style={{ objectFit: "cover" }} className={styles.nextHeroImage} /></div>
             <div className={styles.overlay}></div>
             <div className={styles.heroOverlayDark}></div>
           </div>
@@ -68,7 +69,7 @@ export default function Hero() {
           <div className={styles.content}>
             <p className={styles.subtitle}>ACOLHER, INSPIRAR E CONSTRUIR</p>
             <h1 className={styles.title}>
-              DESPERTA<br/>POTÊNCIA<sup className={styles.registered}>®</sup>
+              DESPERTA<br/>POTÃŠNCIA<sup className={styles.registered}>Â®</sup>
             </h1>
             <button onClick={() => setIsModalOpen(true)} className={styles.cta}  style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
               COMECE SUA JORNADA
@@ -85,4 +86,5 @@ export default function Hero() {
     </>
   );
 }
+
 

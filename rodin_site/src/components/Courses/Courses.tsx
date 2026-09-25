@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,26 +12,26 @@ gsap.registerPlugin(ScrollTrigger);
 const coursesData = [
   {
     title: <>Infantil ao<br/>Fundamental I</>,
-    sub: "Berçario ao 5º ano",
-    imgUrl: "/cursos/le_perini_final.png", // Criança
+    sub: "BerÃ§ario ao 5Âº ano",
+    imgUrl: "/cursos/le_perini_final.png", // CrianÃ§a
     link: "https://leperini.com.br/"
   },
   {
     title: <>Ensino<br/>Fundamental II</>,
-    sub: "6º ao 9º ano",
-    imgUrl: "/cursos/fundamental_II_final.png", // Pré-adolescente
+    sub: "6Âº ao 9Âº ano",
+    imgUrl: "/cursos/fundamental_II_final.png", // PrÃ©-adolescente
     link: "/fundamental-ii"
   },
   {
-    title: <>Ensino<br/>Médio</>,
-    sub: "1ª e 2ª série",
+    title: <>Ensino<br/>MÃ©dio</>,
+    sub: "1Âª e 2Âª sÃ©rie",
     imgUrl: "/cursos/ensino_medio_final.png", // Adolescentes
     link: "/ensino-medio"
   },
   {
-    title: <>Ensino<br/>Médio</>,
-    sub: "Terceirão",
-    imgUrl: "/cursos/terceirao_final.jpg", // Foto exclusiva do Terceirão
+    title: <>Ensino<br/>MÃ©dio</>,
+    sub: "TerceirÃ£o",
+    imgUrl: "/cursos/terceirao_final.jpg", // Foto exclusiva do TerceirÃ£o
     link: "/terceirao"
   }
 ];
@@ -82,7 +82,7 @@ export default function Courses() {
       <h2 className={styles.sectionTitle}>CURSOS</h2>
       
       <div className={styles.carouselWrapper}>
-        <button className={`${styles.navButton} ${styles.navLeft}`} onClick={() => scrollBy('left')}>
+        <button aria-label="Rolar para a esquerda" className={`${styles.navButton} ${styles.navLeft}`} onClick={() => scrollBy('left')}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
@@ -140,7 +140,7 @@ export default function Courses() {
           </div>
         </div>
 
-        <button className={`${styles.navButton} ${styles.navRight}`} onClick={() => scrollBy('right')}>
+        <button aria-label="Rolar para a direita" className={`${styles.navButton} ${styles.navRight}`} onClick={() => scrollBy('right')}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
@@ -149,3 +149,4 @@ export default function Courses() {
     </section>
   );
 }
+

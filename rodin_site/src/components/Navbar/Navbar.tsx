@@ -148,7 +148,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
             {/* BotÃƒÂ£o de Voltar Global (aparece em todas as pÃƒÂ¡ginas exceto a Home) */}
       {!isHome && !isMenuOpen && (
         <div style={{ position: 'fixed', top: '25px', left: '10vw', zIndex: 105 }}>
-          <button onClick={() => router.back()} className={styles.backButtonGlobal} title="Voltar" style={{ pointerEvents: 'auto' }}>
+          <button onClick={() => router.back()} className={styles.backButtonGlobal} title="Voltar" aria-label="Voltar" style={{ pointerEvents: 'auto' }}>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(180deg)' }}>
               <circle cx="12" cy="12" r="9.75" fill="var(--rodin-white)" />
               <path d="M16.28 12.53a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill="var(--rodin-orange)" />
@@ -162,7 +162,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
         className={`${styles.hamburgerContainer} ${isScrolled || !isHome ? styles.scrolled : styles.initial} ${isVideoPlaying ? styles.hideForVideoPill : ''} ${isEquipe ? styles.invertedHamburger : ''}`}
         style={{ display: isMenuOpen ? 'none' : 'flex' }}
       >
-        <button className={styles.hamburger} onClick={() => setIsMenuOpen(true)}>
+        <button aria-label="Abrir menu" className={styles.hamburger} onClick={() => setIsMenuOpen(true)}>
           <span className={styles.line}></span>
           <span className={styles.line}></span>
           <span className={styles.line}></span>
@@ -173,9 +173,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
       {isMenuOpen && <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}
 
       {/* BotÃƒÂ£o Voltar ao Topo */}
-      <button 
-        onClick={scrollToTop} 
-        className={styles.backToTop}
+      <button aria-label="Voltar ao topo" onClick={scrollToTop} className={styles.backToTop}
         style={{ 
           opacity: showBackToTop && !isMenuOpen ? 1 : 0, 
           pointerEvents: showBackToTop && !isMenuOpen ? 'auto' : 'none',
@@ -202,5 +200,6 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
     </>
   );
 }
+
 
 
