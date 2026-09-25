@@ -401,3 +401,32 @@
     border-radius: 50px !important;
   }
 }
+@media (max-width: 1024px) {
+  .tiktokTrack { 
+    display: flex !important; 
+    flex-direction: row !important; 
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 5vw !important;
+    padding: 2rem 7.5vw !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  .tiktokTrack::-webkit-scrollbar {
+    display: none !important;
+  }
+  .tiktokSection { 
+    flex: 0 0 85vw !important; 
+    width: 85vw !important;
+    height: 75vh !important;
+    scroll-snap-align: center !important;
+    margin-bottom: 0 !important;
+    border-radius: 25px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+    overflow: hidden !important;
+    position: relative !important; 
+    top: auto !important; 
+    left: auto !important; 
+  }
+}
