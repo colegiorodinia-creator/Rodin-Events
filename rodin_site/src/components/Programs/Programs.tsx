@@ -137,7 +137,7 @@ export default function Programs() {
                     >
                       {!prog.youtubeId ? (
                         <div className={styles.videoPlaceholderText}>
-                          <p>VÃDEO EM BREVE</p>
+                          <p>VÍDEO EM BREVE</p>
                         </div>
                       ) : (
                         <div className={styles.playCenter}>
@@ -167,7 +167,7 @@ export default function Programs() {
                         />
                       {!prog.youtubeId ? (
                         <div className={styles.videoPlaceholderText} style={{ zIndex: 6 }}>
-                          <p>VÃDEO EM BREVE</p>
+                          <p>VÍDEO EM BREVE</p>
                         </div>
                       ) : (
                         <div className={styles.playCenter} style={{ zIndex: 6 }}>
