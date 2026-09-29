@@ -112,7 +112,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
 
             {/* Botão de Voltar Global (aparece em todas as páginas exceto a Home) */}
       {!isHome && !isMenuOpen && (
-        <div style={{ posiçãon: 'fixed', top: '25px', left: '10vw', zIndex: 105 }}>
+        <div style={{ position: 'fixed', top: '25px', left: '10vw', zIndex: 105 }}>
           <button onClick={() => router.back()} className={styles.backButtonGlobal} title="Voltar" aria-label="Voltar" style={{ pointerEvents: 'auto' }}>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(180deg)' }}>
               <circle cx="12" cy="12" r="9.75" fill="var(--rodin-white)" />
@@ -157,7 +157,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
       <Link 
         href="/matriculas" 
         className={styles.whatsappBtn}
-        style={{ posiçãon: 'fixed', bottom: '2rem', right: '1.5rem', width: '55px', height: '55px', borderRadius: '50%', backgroundColor: '#25D366', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, boxShadow: '0 4px 12px rgba(0,0,0,0.3)', opacity: !isMenuOpen ? 1 : 0, pointerEvents: !isMenuOpen ? 'auto' : 'none', transition: 'all 0.3s ease' }}
+        style={{ position: 'fixed', bottom: '2rem', right: '1.5rem', width: '55px', height: '55px', borderRadius: '50%', backgroundColor: '#25D366', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, boxShadow: '0 4px 12px rgba(0,0,0,0.3)', opacity: !isMenuOpen ? 1 : 0, pointerEvents: !isMenuOpen ? 'auto' : 'none', transition: 'all 0.3s ease' }}
         title="Matrículas e Contato via WhatsApp"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "32px", height: "32px" }}>
