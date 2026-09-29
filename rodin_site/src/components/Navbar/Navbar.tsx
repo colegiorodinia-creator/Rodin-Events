@@ -101,7 +101,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
               src={theme === "dark" ? "/logo_black.png" : "/logo.png"} 
               alt="Colégio Rodin" 
               className={styles.logoMainInitial}
-            />
+              />
           </Link>
         </div>
       )}

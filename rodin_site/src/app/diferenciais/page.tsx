@@ -116,7 +116,7 @@ export default function DiferenciaisPage() {
 
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <img src="/a gente é diferente.png" alt="A gente é diferente" className={styles.heroTitleImg} />
+          <img src="/a gente é diferente.png" alt="A gente é diferente" className={styles.heroTitleImg}  loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -124,7 +124,7 @@ export default function DiferenciaisPage() {
         {diffs.map((diff, i) => (
           <section key={i} className={`${styles.section} ${i % 2 !== 0 ? styles.sectionReverse : ''}`}>
             <div className={styles.imageContainer}>
-              <img src={diff.image} alt={diff.title} className={styles.image} />
+              <img src={diff.image} alt={diff.title} className={styles.image}  loading="lazy" decoding="async" />
             </div>
             <div className={styles.textContent}>
               <h2 className={styles.title}>{diff.title}</h2>

@@ -64,7 +64,7 @@ export default async function ActivityPage({ params }: { params: Promise<{ id: s
               src={activity.image} 
               alt={activity.title} 
               className={styles.image} 
-            />
+             loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

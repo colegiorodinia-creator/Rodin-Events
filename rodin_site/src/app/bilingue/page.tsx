@@ -49,7 +49,7 @@ export default function BilinguePage() {
               src="/extracurriculares/thumb/thumb_video3.jpg" 
               alt="Alunos no Programa Bilíngue" 
               className={styles.infoImage} 
-            />
+             loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

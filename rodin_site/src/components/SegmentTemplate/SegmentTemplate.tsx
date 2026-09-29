@@ -148,7 +148,7 @@ export default function SegmentTemplate({
               <h2 className={styles.sectionTitle}>Matriz Curricular</h2>
               {curriculumImage ? (
                 <div className={styles.curriculumImageWrapper}>
-                  <img src={curriculumImage} alt="Matriz Curricular" className={styles.curriculumImage} />
+                  <img src={curriculumImage} alt="Matriz Curricular" className={styles.curriculumImage}  loading="lazy" decoding="async" />
                 </div>
               ) : (
                 <div className={styles.curriculumGrid}>
@@ -175,7 +175,7 @@ export default function SegmentTemplate({
             <div className={styles.grid} ref={galleryRef}>
               {galleryImages.map((src, idx) => (
                 <div key={idx} className={styles.galleryItem}>
-                  <img src={src} alt={`Estrutura ${idx + 1}`} className={styles.galleryImage} />
+                  <img src={src} alt={`Estrutura ${idx + 1}`} className={styles.galleryImage}  loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>

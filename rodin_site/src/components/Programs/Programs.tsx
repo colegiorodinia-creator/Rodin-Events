@@ -164,7 +164,7 @@ export default function Programs() {
                             maxWidth: 'none', 
                             transform: `translateX(${prog.mobileTranslateX})` 
                           }} 
-                        />
+                         loading="lazy" decoding="async" />
                       {!prog.youtubeId ? (
                         <div className={styles.videoPlaceholderText} style={{ zIndex: 6 }}>
                           <p>VÍDEO EM BREVE</p>

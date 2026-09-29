@@ -56,7 +56,7 @@ export default function Menu({ isOpen, onClose }: MenuProps) {
     <div className={styles.overlay} ref={overlayRef} style={{ visibility: 'hidden', opacity: 0 }}>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <img src="/logo.png" alt="Colégio Rodin" />
+          <img src="/logo.png" alt="Colégio Rodin"  loading="lazy" decoding="async" />
         </div>
         <div className={styles.headerRight}>
            <button className={styles.closeBtn} onClick={onClose}>

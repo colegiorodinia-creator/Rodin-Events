@@ -38,7 +38,7 @@ export default function EquipePage() {
                     objectPosition: member.imagePosition || 'center',
                     transformOrigin: member.imagePosition || 'center' 
                   }} 
-                />
+                 loading="lazy" decoding="async" />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.name}>{member.name}</h3>

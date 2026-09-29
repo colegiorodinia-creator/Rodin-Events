@@ -111,7 +111,7 @@ export default function Infraestrutura() {
           <div className={styles.mobileCardsContainer}>
             {infraData.map((item, i) => (
               <div key={i} className={styles.mobileCard}>
-                <img src={item.src} alt={item.title} className={styles.mobileCardImg} />
+                <img src={item.src} alt={item.title} className={styles.mobileCardImg}  loading="lazy" decoding="async" />
                 <div className={styles.mobileCardOverlay}>
                   <h3>{item.title}</h3>
                 </div>

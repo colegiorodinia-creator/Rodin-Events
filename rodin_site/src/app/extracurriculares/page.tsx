@@ -118,7 +118,7 @@ export default function ExtracurricularesPage() {
             {extracurricularesData.map((item) => (
               <Link href={`/extracurriculares/${item.id}`} key={item.id} className={styles.card}>
                 <div className={styles.imageWrapper}>
-                  <img src={item.image} alt={item.title} className={styles.image} />
+                  <img src={item.image} alt={item.title} className={styles.image}  loading="lazy" decoding="async" />
                   <div className={styles.overlay}>
                     <span className={styles.exploreText}>Explorar</span>
                   </div>

@@ -55,7 +55,7 @@ export default async function ItinerarioPage({ params }: { params: Promise<{ id:
               alt={itinerario.title} 
               className={styles.image} 
               style={{ objectPosition: itinerario.id === 'geopolitica' ? '20% center' : 'center' }}
-            />
+             loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

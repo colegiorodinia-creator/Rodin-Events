@@ -119,7 +119,7 @@ export default function ItinerariosPage() {
                         ? { objectPosition: 'center' }
                         : { objectPosition: 'center top' }
                     }
-                  />
+                   loading="lazy" decoding="async" />
                   <div className={styles.overlay}>
                     <span className={styles.exploreText}>Explorar</span>
                   </div>

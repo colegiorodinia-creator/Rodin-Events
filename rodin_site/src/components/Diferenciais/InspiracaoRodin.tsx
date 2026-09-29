@@ -57,7 +57,7 @@ export default function InspiracaoRodin() {
             <h3 className={styles.scrollySubtitle}>FRANÇOIS-AUGUSTE-RENÉ RODIN (1840 – 1917)</h3>
             
             <div className={styles.mobileImageWrapper}>
-              <img src="/auguste_rodin.png" alt="Auguste Rodin" className={styles.mobileImage} />
+              <img src="/auguste_rodin.png" alt="Auguste Rodin" className={styles.mobileImage}  loading="lazy" decoding="async" />
             </div>
 
             <p className={styles.scrollyParagraph}>
@@ -83,7 +83,7 @@ export default function InspiracaoRodin() {
             src="/auguste_rodin.png" 
             alt="Auguste Rodin" 
             className={styles.scrollyImage}
-          />
+           loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
