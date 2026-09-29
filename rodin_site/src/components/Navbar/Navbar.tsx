@@ -52,7 +52,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Escuta eventos dos vÃƒÂ­deos
+    // Escuta eventos dos vídeos
     const handleVideoState = (e: any) => {
       setIsVideoPlaying(e.detail.isAnyPlaying);
     };

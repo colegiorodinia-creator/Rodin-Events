@@ -18,7 +18,7 @@ export default function Hero() {
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
-    // Executa a anima��o de zoom e overlay APENAS em telas maiores que 768px (Desktop)
+    // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
     mm.add("(min-width: 769px)", () => {
       gsap.fromTo(heroRef.current,
         { scale: 1 },

@@ -12,33 +12,33 @@ gsap.registerPlugin(ScrollTrigger);
 const programsData = [
   {
     title: "Cursos Extracurriculares",
-    desc: <>Nossa grade de cursos abre um universo de possibilidades: da disciplina Ã  expressÃ£o artÃ­stica, da fluÃªncia em novos idiomas Ã  mente estratÃ©gica. Cada caminho foi pensado para o crescimento integral <br className={styles.mobileBreak} />do aluno.</>,
+    desc: <>Nossa grade de cursos abre um universo de possibilidades: da disciplina à expressão artística, da fluência em novos idiomas à mente estratégica. Cada caminho foi pensado para o crescimento integral <br className={styles.mobileBreak} />do aluno.</>,
     youtubeId: "_uicu5AFHyc",
     thumbUrl: "/extracurriculares/thumb/thumb_video1.png?v=2",
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video1.png?v=2",
     mobileTranslateX: "-50%",
     link: "/extracurriculares",
-    buttonText: "ConheÃ§a Todas as Modalidades"
+    buttonText: "Conheça Todas as Modalidades"
   },
   {
-    title: <>ItinerÃ¡rios<br/>formativos eletivos</>,
-    desc: <>Os ItinerÃ¡rios Formativos Eletivos sÃ£o oportunidades para os estudantes explorarem Ã¡reas de interesse, desenvolverem habilidades e se conectarem <br className={styles.mobileBreak} />com o que realmente amam aprender.</>,
+    title: <>Itinerários<br/>formativos eletivos</>,
+    desc: <>Os Itinerários Formativos Eletivos são oportunidades para os estudantes explorarem áreas de interesse, desenvolverem habilidades e se conectarem <br className={styles.mobileBreak} />com o que realmente amam aprender.</>,
     youtubeId: "nTbgYo5ghfU",
     thumbUrl: "/extracurriculares/thumb/thumb_video2.png", bgPositionMobile: "80% center", 
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video2_mobile_final.png?v=1",
     mobileTranslateX: "-50%",
     link: "/itinerarios",
-    buttonText: "ConheÃ§a Nossos ItinerÃ¡rios"
+    buttonText: "Conheça Nossos Itinerários"
   },
   {
-    title: <>Programa<br/>de EducaÃ§Ã£o BilÃ­ngue</>,
-    desc: <>O idioma utilizado como meio de aquisiÃ§Ã£o de conhecimento e nÃ£o como finalidade da aula. Nas cinco aulas semanais, sÃ£o desenvolvidos em inglÃªs conteÃºdos que integram o currÃ­culo escolar, aprimorando as habilidades linguÃ­sticas dos alunos, com foco <br className={styles.mobileBreak} />especial na oralidade.</>,
+    title: <>Programa<br/>de Educação Bilíngue</>,
+    desc: <>O idioma utilizado como meio de aquisição de conhecimento e não como finalidade da aula. Nas cinco aulas semanais, são desenvolvidos em inglês conteúdos que integram o currículo escolar, aprimorando as habilidades linguísticas dos alunos, com foco <br className={styles.mobileBreak} />especial na oralidade.</>,
     youtubeId: "",
     thumbUrl: "/extracurriculares/thumb/thumb_video3.jpg?v=2",
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video3.jpg?v=2",
     mobileTranslateX: "-50%",
     link: "/bilingue",
-    buttonText: "Saiba mais sobre o BilÃ­ngue"
+    buttonText: "Saiba mais sobre o Bilíngue"
   }
 ];
 
@@ -64,7 +64,7 @@ export default function Programs() {
   const containerRef = useRef(null);
   const trackRef = useRef(null);
 
-  // Notifica o Navbar quando algum vÃ­deo dessa seÃ§Ã£o estÃ¡ tocando (para esconder o cabeÃ§alho)
+  // Notifica o Navbar quando algum vídeo dessa seção está tocando (para esconder o cabeçalho)
   useEffect(() => {
     const isAnyPlaying = Object.values(playing).some(val => val === true);
     if (typeof window !== 'undefined') {
@@ -107,7 +107,7 @@ export default function Programs() {
   };
 
   const handleCustomPlay = (index: number) => {
-    if (!programsData[index].youtubeId) return; // Se nÃ£o tiver vÃ­deo, nÃ£o faz nada
+    if (!programsData[index].youtubeId) return; // Se não tiver vídeo, não faz nada
     hasPlayedRef.current[index] = false;
     setPlaying(prev => ({ ...prev, [index]: true }));
     if (players[index]) {
