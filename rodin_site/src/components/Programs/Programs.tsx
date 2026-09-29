@@ -57,6 +57,7 @@ const youtubeOpts = {
 
 export default function Programs() {
   const [playing, setPlaying] = useState<{ [key: number]: boolean }>({});
+  const [hasInteracted, setHasInteracted] = useState<{ [key: number]: boolean }>({});
   const [players, setPlayers] = useState<{ [key: number]: any }>({});
   const hasPlayedRef = useRef<{ [key: number]: boolean }>({});
   const lastPlayTimeRef = useRef<{ [key: number]: number }>({});
@@ -110,6 +111,7 @@ export default function Programs() {
     if (!programsData[index].youtubeId) return; // Se não tiver vídeo, não faz nada
     hasPlayedRef.current[index] = false;
     setPlaying(prev => ({ ...prev, [index]: true }));
+      setHasInteracted(prev => ({ ...prev, [index]: true }));
     if (players[index]) {
       try {
         players[index].playVideo();
