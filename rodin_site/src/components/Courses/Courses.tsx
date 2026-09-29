@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,26 +12,26 @@ gsap.registerPlugin(ScrollTrigger);
 const coursesData = [
   {
     title: <>Infantil ao<br/>Fundamental I</>,
-    sub: "BerÃ§ario ao 5Âº ano",
-    imgUrl: "/cursos/le_perini_final.png", // CrianÃ§a
+    sub: "Berçario ao 5º ano",
+    imgUrl: "/cursos/le_perini_final.png", // Criança
     link: "https://leperini.com.br/"
   },
   {
     title: <>Ensino<br/>Fundamental II</>,
-    sub: "6Âº ao 9Âº ano",
-    imgUrl: "/cursos/fundamental_II_final.png", // PrÃ©-adolescente
+    sub: "6º ao 9º ano",
+    imgUrl: "/cursos/fundamental_II_final.png", // Pré-adolescente
     link: "/fundamental-ii"
   },
   {
-    title: <>Ensino<br/>MÃ©dio</>,
-    sub: "1Âª e 2Âª sÃ©rie",
+    title: <>Ensino<br/>Médio</>,
+    sub: "1ª e 2ª série",
     imgUrl: "/cursos/ensino_medio_final.png", // Adolescentes
     link: "/ensino-medio"
   },
   {
-    title: <>Ensino<br/>MÃ©dio</>,
-    sub: "TerceirÃ£o",
-    imgUrl: "/cursos/terceirao_final.jpg", // Foto exclusiva do TerceirÃ£o
+    title: <>Ensino<br/>Médio</>,
+    sub: "Terceirão",
+    imgUrl: "/cursos/terceirao_final.jpg", // Foto exclusiva do Terceirão
     link: "/terceirao"
   }
 ];
@@ -149,4 +149,3 @@ export default function Courses() {
     </section>
   );
 }
-

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Programs.module.css';
 import gsap from 'gsap';

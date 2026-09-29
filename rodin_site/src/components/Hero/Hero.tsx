@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
 import Image from 'next/image';
@@ -18,7 +18,7 @@ export default function Hero() {
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
-    // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
+    // Executa a anima��o de zoom e overlay APENAS em telas maiores que 768px (Desktop)
     mm.add("(min-width: 769px)", () => {
       gsap.fromTo(heroRef.current,
         { scale: 1 },
@@ -69,7 +69,7 @@ export default function Hero() {
           <div className={styles.content}>
             <p className={styles.subtitle}>ACOLHER, INSPIRAR E CONSTRUIR</p>
             <h1 className={styles.title}>
-              DESPERTA<br/>POTÃŠNCIA<sup className={styles.registered}>Â®</sup>
+              DESPERTA<br/>POTÊNCIA<sup className={styles.registered}>®</sup>
             </h1>
             <button onClick={() => setIsModalOpen(true)} className={styles.cta}  style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
               COMECE SUA JORNADA
@@ -86,5 +86,4 @@ export default function Hero() {
     </>
   );
 }
-
 

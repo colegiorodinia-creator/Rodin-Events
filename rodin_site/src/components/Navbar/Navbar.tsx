@@ -173,7 +173,9 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
       {isMenuOpen && <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}
 
       {/* BotÃƒÂ£o Voltar ao Topo */}
-      <button aria-label="Voltar ao topo" onClick={scrollToTop} className={styles.backToTop}
+      <button 
+        onClick={scrollToTop} 
+        className={styles.backToTop}
         style={{ 
           opacity: showBackToTop && !isMenuOpen ? 1 : 0, 
           pointerEvents: showBackToTop && !isMenuOpen ? 'auto' : 'none',
@@ -200,6 +202,5 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
     </>
   );
 }
-
 
 
