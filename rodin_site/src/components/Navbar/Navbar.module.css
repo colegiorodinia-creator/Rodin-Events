@@ -1,6 +1,6 @@
 .headerInitial {
   position: fixed;
-  top: -15px; /* Valor negativo para forçar a subida além do limite da tela */
+  top: -15px; /* Valor negativo para forÃ§ar a subida alÃ©m do limite da tela */
   left: 0;
   width: 100vw;
   padding: 0 8vw 0 10vw; /* Ajustado para 8vw para achar o meio-termo ideal da direita */
@@ -49,7 +49,7 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Transições de Crossfade e FadeUp/Down */
+/* TransiÃ§Ãµes de Crossfade e FadeUp/Down */
 .hiddenFade {
   opacity: 0;
   pointer-events: none;
@@ -72,7 +72,7 @@
   transform: translateY(0);
 }
 
-/* Esconde o cabeçalho quando um vídeo está tocando */
+/* Esconde o cabeÃ§alho quando um vÃ­deo estÃ¡ tocando */
 .hideForVideoPill {
   transform: translateY(-200%) !important;
   opacity: 0 !important;
@@ -213,7 +213,7 @@
   box-shadow: none;
 }
 
-/* OUTROS ESTILOS (Botão voltar, dropdown, etc) */
+/* OUTROS ESTILOS (BotÃ£o voltar, dropdown, etc) */
 .backButton {
   background: rgba(0, 0, 0, 0.4);
   border: 2px solid var(--rodin-white);
@@ -299,7 +299,7 @@
 
 .backToTop {
   position: fixed;
-  bottom: 6rem; /* Subiu para dar espaço ao WhatsApp */
+  bottom: 6rem; /* Subiu para dar espaÃ§o ao WhatsApp */
   right: 8vw; /* Alinhado com o menu hamburguer */
   width: 50px;
   height: 50px;
@@ -360,7 +360,7 @@
     width: 95%;
   }
   
-  /* Esconde os links e actions no mobile para dar espaço ao hamburger */
+  /* Esconde os links e actions no mobile para dar espaÃ§o ao hamburger */
   .nav, .actions {
     display: none !important;
   }
@@ -411,7 +411,7 @@
     padding: 0 1.5rem;
   }
   .logoMainInitial {
-    height: 85px !important; /* Reduzido para n�o pegar nas palavras do Hero */
+    height: 85px !important; /* Reduzido para não pegar nas palavras do Hero */
   }
 }
 
@@ -429,3 +429,8 @@
     background-color: var(--rodin-black) !important; 
   }
 }
+
+/* Cache bust 1 */
+/* Cache bust 2 */
+
+/* Cache bust 2 */
