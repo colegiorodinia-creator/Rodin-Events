@@ -180,11 +180,11 @@ export default function Programs() {
                   </>
                 )}
 
-                {prog.youtubeId && (
+                {prog.youtubeId && hasInteracted[i] && (
                   <>
                     <YouTube 
                       videoId={prog.youtubeId} 
-                      opts={youtubeOpts} 
+                      opts={{...youtubeOpts, playerVars: { ...youtubeOpts.playerVars, autoplay: 1 }}} 
                       onReady={(e) => onReady(e, i)}
                       onStateChange={(e) => {
                           if (e.data === 1) { // Playing

@@ -407,9 +407,10 @@
     padding: 0 1.5rem;
   }
   .hamburgerContainer.initial {
-    top: 5px; 
-    padding: 0 1.5rem;
-  }
+      top: -15px;
+      height: 85px;
+      padding: 0 1.5rem;
+    }
   .logoMainInitial {
     height: 85px !important; /* Reduzido para não pegar nas palavras do Hero */
   }
