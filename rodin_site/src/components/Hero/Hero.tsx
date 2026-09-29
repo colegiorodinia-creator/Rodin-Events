@@ -16,40 +16,44 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const timer = setTimeout(() => {
+      let mm = gsap.matchMedia();
 
-    // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
-    mm.add("(min-width: 769px)", () => {
-      gsap.fromTo(heroRef.current,
-        { scale: 1 },
-        {
-          scale: 1.15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "+=100%",
-            scrub: true,
-            pin: true,
-            refreshPriority: 10
+      // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
+      mm.add("(min-width: 769px)", () => {
+        gsap.fromTo(heroRef.current,
+          { scale: 1 },
+          {
+            scale: 1.15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: "+=100%",
+              scrub: true,
+              pin: true,
+              refreshPriority: 10
+            }
           }
-        }
-      );
+        );
 
-      gsap.fromTo("." + styles.heroOverlayDark,
-        { opacity: 0 },
-        {
-          opacity: 0.95,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "+=100%",
-            scrub: true
+        gsap.fromTo("." + styles.heroOverlayDark,
+          { opacity: 0 },
+          {
+            opacity: 0.95,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: "+=100%",
+              scrub: true
+            }
           }
-        }
-      );
-    });
+        );
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, { scope: containerRef });
 
   return (
