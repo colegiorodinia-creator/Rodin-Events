@@ -187,21 +187,12 @@ export default function Programs() {
                       opts={youtubeOpts} 
                       onReady={(e) => onReady(e, i)}
                       onStateChange={(e) => {
-                        if (e.data === 1) { // Playing
-                          hasPlayedRef.current[i] = true;
-                          lastPlayTimeRef.current[i] = Date.now();
-                          setPlaying(prev => ({ ...prev, [i]: true }));
-                        } else if (e.data === 2 && hasPlayedRef.current[i]) {
-                          const timeSincePlay = Date.now() - (lastPlayTimeRef.current[i] || 0);
-                          if (timeSincePlay > 500) { // Only revert if it played for at least half a second
+                          if (e.data === 1) { // Playing
+                            setPlaying(prev => ({ ...prev, [i]: true }));
+                          } else if (e.data === 2 || e.data === 0) { // Paused or Ended
                             setPlaying(prev => ({ ...prev, [i]: false }));
-                            hasPlayedRef.current[i] = false;
                           }
-                        } else if (e.data === 0 && hasPlayedRef.current[i]) {
-                          setPlaying(prev => ({ ...prev, [i]: false }));
-                          hasPlayedRef.current[i] = false;
-                        }
-                      }}
+                        }}
                       className={styles.iframe}
                       iframeClassName={styles.iframe}
                     />
