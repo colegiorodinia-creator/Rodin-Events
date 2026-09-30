@@ -65,7 +65,7 @@ export default function Hero() {
           
           {/* Background */}
           <div className={styles.bgWrapper}>
-            <div className={styles.bgImage}><Image src="/cursos/capa.png" alt="Colégio Rodin" priority fill sizes="100vw" style={{ objectFit: "cover" }} className={styles.nextHeroImage} /></div>
+            <div className={styles.bgImage}><Image src="/cursos/capa.webp" alt="Colégio Rodin" priority fill sizes="100vw" style={{ objectFit: "cover" }} className={styles.nextHeroImage} /></div>
             <div className={styles.overlay}></div>
             <div className={styles.heroOverlayDark}></div>
           </div>
