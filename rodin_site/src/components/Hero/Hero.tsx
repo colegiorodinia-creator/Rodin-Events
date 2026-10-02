@@ -6,7 +6,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
-import ModalKit from '../ModalKit/ModalKit';
+import dynamic from 'next/dynamic';
+const ModalKit = dynamic(() => import('../ModalKit/ModalKit'));
 
 gsap.registerPlugin(ScrollTrigger);
 

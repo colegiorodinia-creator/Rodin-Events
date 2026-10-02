@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
-import Menu from '../Menu/Menu';
+import dynamic from 'next/dynamic';
+const Menu = dynamic(() => import('../Menu/Menu'));
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
