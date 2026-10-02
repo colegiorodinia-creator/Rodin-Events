@@ -92,6 +92,7 @@ export default function Event() {
   }, [startIndex, maxStartIndex, mediaItems.length]);
 
   useGSAP(() => {
+    if (window.innerWidth <= 768) return;
     const ctx = gsap.context(() => {
       gsap.fromTo(bgRef.current,
         { scale: 1 },

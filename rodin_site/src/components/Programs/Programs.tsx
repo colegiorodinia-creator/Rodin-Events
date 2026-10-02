@@ -74,6 +74,7 @@ export default function Programs() {
   }, [playing]);
 
   useGSAP(() => {
+    if (window.innerWidth <= 768) return;
     let mm = gsap.matchMedia();
     mm.add("(min-width: 1025px)", () => {
       if (!containerRef.current) return;

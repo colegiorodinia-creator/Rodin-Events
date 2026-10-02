@@ -41,6 +41,7 @@ export default function Courses() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    if (window.innerWidth <= 768) return;
     gsap.fromTo(`.${styles.card}`,
       { y: 100, opacity: 0 },
       {

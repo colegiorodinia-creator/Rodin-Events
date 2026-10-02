@@ -1,0 +1,1 @@
+const sharp = require('sharp'); sharp('public/cursos/capa.png').resize(1920).webp({ quality: 75 }).toFile('public/cursos/capa.webp').then(() => console.log('Compression complete!')).catch(err => console.error(err));

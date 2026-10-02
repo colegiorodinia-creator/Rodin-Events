@@ -15,6 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preload" as="image" href="/cursos/capa.webp" />
+      </head>
       <body>
         <SmoothScroll>
           {children}

@@ -17,6 +17,7 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useGSAP(() => {
+    if (window.innerWidth <= 768) return;
     const timer = setTimeout(() => {
       let mm = gsap.matchMedia();
 
