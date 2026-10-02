@@ -37,9 +37,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/cursos/capa.png');
-  background-size: cover;
-  background-position: center;
+  
+  
+  
   transform: scale(1.15); /* Zoom para aproximar a foto */
   z-index: 1;
 }
