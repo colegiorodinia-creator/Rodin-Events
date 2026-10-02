@@ -56,7 +56,7 @@ export default function Highlight() {
       name: "Lia Purcina",
       role: "Aluna do 7º ano",
       quote: "Diminuiu muito meu tempo de tela. Sabe, é como se eu estivesse mais feliz, mais livre, assim, depois de sair mais das telas.",
-      coverImage: "/depoimentos/lia.png",
+      coverImage: "/depoimentos/lia.webp",
       thumbImage: "/depoimentos/lia_icon.jpg",
       videoId: "iRmFjoG0EHE",
       localVideoMobile: "/depoimentos_mobile/lia_purcina.mp4",

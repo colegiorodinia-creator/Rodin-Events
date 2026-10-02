@@ -10,7 +10,7 @@ export const teamData = [
     "name": "Ricardo",
     "role": "Professor",
     "formation": "Graduado em História pela UNESP, com pós-graduação em Psicopedagogia e MBA em Marketing. Possui 14 anos de experiência na Educação Básica e Pré-Vestibular.",
-    "imgUrl": "/equipe/Ricardo.png"
+    "imgUrl": "/equipe/Ricardo.webp"
   },
   {
     "name": "Emerson",
@@ -127,7 +127,7 @@ export const teamData = [
     "name": "Giulia",
     "role": "Professora",
     "formation": "Licenciada em Educação Física, com 20 anos de experiência em dança e 15 em teatro. É responsável pelas turmas extracurriculares de Jazz e Teatro.",
-    "imgUrl": "/equipe/Giulia.png?v=2",
+    "imgUrl": "/equipe/Giulia.webp?v=2",
     "imagePosition": "center 40%"
   },
   {
@@ -263,31 +263,31 @@ export const teamData = [
     "name": "Tati Fadel",
     "role": "Professora",
     "formation": "Mestre em Educação e graduada em Letras pela UNICAMP. Qualificada na avaliação de redações de grandes vestibulares, atuando no mercado desde 1993.",
-    "imgUrl": "/equipe/Tati Fadel.png"
+    "imgUrl": "/equipe/Tati Fadel.webp"
   },
   {
     "name": "Thiago",
     "role": "Professor",
     "formation": "Formado em Biologia pela UNICAMP. Atua desde 2001 na Educação Básica e Pré-Vestibular, com especialização em Criopreservação de Embriões.",
-    "imgUrl": "/equipe/Thiago.png"
+    "imgUrl": "/equipe/Thiago.webp"
   },
   {
     "name": "Thomas",
     "role": "Professor",
     "formation": "Licenciado em Física pela Unicamp. Atuou no Museu Exploratório de Ciências e no Instituto de Física Gleb Wataghin, conectando a Física Moderna à Educação Básica.",
-    "imgUrl": "/equipe/Thomas.png"
+    "imgUrl": "/equipe/Thomas.webp"
   },
   {
     "name": "Valeska",
     "role": "Professora",
     "formation": "Graduada em Letras pela UFJF com múltiplas licenciaturas em idiomas. Pós-graduada pela FGV, possui mais de 30 anos de experiência no ensino de inglês.",
-    "imgUrl": "/equipe/Valeska.png",
+    "imgUrl": "/equipe/Valeska.webp",
     "imagePosition": "65% top"
   },
   {
     "name": "Guilherme",
     "role": "",
     "formation": "Cursando Educação Física, com experiência no esporte educacional, adaptado e auto rendimento. Aperfeiçoamento em futsal e treinamento desportivo.",
-    "imgUrl": "/equipe/Guilherme Treinador.png"
+    "imgUrl": "/equipe/Guilherme Treinador.webp"
   }
 ];

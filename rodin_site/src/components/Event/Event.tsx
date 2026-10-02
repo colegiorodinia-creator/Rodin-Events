@@ -36,8 +36,8 @@ export default function Event() {
       videoUrl: "https://www.youtube.com/watch?v=dfFNCqdnPn0&t=1s"
     },
     { 
-      src: "/eventos/festa_dos_aprovados_mobile.jpg",
-      srcMobile: "/eventos/festa_dos_aprovados_mobile.jpg",
+      src: "/eventos/festa_dos_aprovados_mobile.webp",
+      srcMobile: "/eventos/festa_dos_aprovados_mobile.webp",
       title: <>Festa dos<br/>Aprovados</>,
       desc: "Um momento especial para celebrar a dedicação, o esforço e as conquistas dos nossos alunos. A Festa dos Aprovados homenageia aqueles que transformaram seus sonhos em realidade.",
       videoUrl: "https://www.youtube.com/watch?v=Tg548DH-JMI"
@@ -51,7 +51,7 @@ export default function Event() {
     },
     { 
       src: "/eventos/rodin_cultural.jpg",
-      srcMobile: "/eventos/rodin_cultural_mobile.jpg",
+      srcMobile: "/eventos/rodin_cultural_mobile.webp",
       title: <>Rodin<br/>Cultural</>,
       desc: "Um evento que celebra a diversidade da arte, da cultura e do conhecimento. O Rodin Cultural convida os alunos a explorar diferentes formas de expressão e compartilhar seus talentos.",
       videoUrl: "https://www.youtube.com/watch?v=3tCMBDbcRf0"

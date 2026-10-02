@@ -273,7 +273,7 @@
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.png'); background-size: cover; background-position: center; background-attachment: fixed;
+  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.webp'); background-size: cover; background-position: center; background-attachment: fixed;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
   padding: 0.5rem 0;
