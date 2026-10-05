@@ -18,7 +18,7 @@ export default function EquipePage() {
       <main className={styles.pageContainer}>
         <h1 className={styles.title} style={{ marginBottom: '2rem' }}>CORPO DOCENTE</h1>
         
-        <p style={{ textAlign: 'center', color: '#fff', marginBottom: '2rem', marginTop: '-1rem', opacity: 0.8 }}>
+        <p className={styles.globalClickHint}>
           Clique em um professor para ver a formação completa.
         </p>
 

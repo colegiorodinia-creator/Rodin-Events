@@ -266,3 +266,16 @@
     -webkit-line-clamp: 2 !important;
   }
 }
+
+.globalClickHint {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  opacity: 0.8;
+}
+@media (min-width: 1025px) {
+  .globalClickHint {
+    display: none !important;
+  }
+}
