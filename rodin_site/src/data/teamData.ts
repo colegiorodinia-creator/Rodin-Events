@@ -127,7 +127,7 @@ export const teamData = [
     "name": "Giulia",
     "role": "Professora",
     "formation": "Licenciada em Educação Física, com 20 anos de experiência em dança e 15 em teatro. É responsável pelas turmas extracurriculares de Jazz e Teatro.",
-    "imgUrl": "/equipe/Giulia.webp?v=2",
+    "imgUrl": "/equipe/Giulia.png?v=2",
     "imagePosition": "center 40%"
   },
   {
