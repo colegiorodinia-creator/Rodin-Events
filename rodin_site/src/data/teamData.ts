@@ -51,7 +51,7 @@ export const teamData = [
   {
     "name": "Bruno",
       "role": "Professor",
-      "formation": "Treinador de futebol e futsal focado no desenvolvimento integral de atletas. Possui licenças níveis C e B pela FPFS (Federação Paulista de Futsal) e é especialista em organização, sistemas táticos e gestão de equipe multidisciplinar.",
+      "formation": "Treinador de futebol e futsal com licenças C e B pela FPFS. Foco no desenvolvimento integral de atletas e especialista em sistemas táticos.",
       "imgUrl": "/equipe/Bruno.png"
   },
   {
