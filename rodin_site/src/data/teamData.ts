@@ -169,7 +169,7 @@ export const teamData = [
   {
     "name": "Kauana",
       "role": "Professora",
-      "formation": "Professora de xadrez há 4 anos e atleta com mais de 100 medalhas. É vice-campeã Pan-Americana de Othello e lidera a equipe octacampeã de Indaiatuba. Seus alunos possuem títulos nacionais e internacionais.",
+      "formation": "Professora de xadrez e atleta multicampeã (+100 medalhas). Vice Pan-Americana de Othello, lidera a equipe de Indaiatuba e forma alunos com títulos internacionais.",
       "imgUrl": "/equipe/Kauana.png"
   },
   {
