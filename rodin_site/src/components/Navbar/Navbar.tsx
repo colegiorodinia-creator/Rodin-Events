@@ -146,7 +146,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
           opacity: showBackToTop && !isMenuOpen ? 1 : 0, 
           pointerEvents: showBackToTop && !isMenuOpen ? 'auto' : 'none',
           visibility: showBackToTop && !isMenuOpen ? 'visible' : 'hidden',
-          transition: 'opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease'
+          right: '1.5rem', transition: 'opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease'
         }}
       >
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -158,7 +158,7 @@ export default function Navbar({ theme = "light", backUrl = "/" }: { theme?: "li
       <Link 
         href="/matriculas" 
         className={styles.whatsappBtn}
-        style={{ position: 'fixed', bottom: '2rem', right: '1.5rem', width: '55px', height: '55px', borderRadius: '50%', backgroundColor: '#25D366', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, boxShadow: '0 4px 12px rgba(0,0,0,0.3)', opacity: !isMenuOpen ? 1 : 0, pointerEvents: !isMenuOpen ? 'auto' : 'none', transition: 'all 0.3s ease' }}
+        style={{ position: 'fixed', bottom: '2rem', right: '1.5rem', width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#25D366', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999, boxShadow: '0 4px 12px rgba(0,0,0,0.3)', opacity: !isMenuOpen ? 1 : 0, pointerEvents: !isMenuOpen ? 'auto' : 'none', transition: 'all 0.3s ease' }}
         title="Matrículas e Contato via WhatsApp"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "32px", height: "32px" }}>
