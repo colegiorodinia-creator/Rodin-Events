@@ -137,7 +137,8 @@
 
   .rightColumn {
     width: 40%;
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 100vh;
   }
 }
