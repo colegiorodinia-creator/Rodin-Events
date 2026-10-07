@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function InspiracaoRodin() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const pinWrapperRef = useRef<HTMLDivElement>(null);
-  const leftColumnRef = useRef<HTMLDivElement>(null);
-  const rightColumnRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  
+  
+  
+  
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -49,8 +49,8 @@ export default function InspiracaoRodin() {
   return (
     <div className={styles.wrapper} ref={wrapperRef} id="inspiracao">
       
-      <div className={styles.pinWrapper} ref={pinWrapperRef}>
-        <div className={styles.leftColumn} ref={leftColumnRef}>
+      <div className={styles.pinWrapper} >
+        <div className={styles.leftColumn} >
           
           <div className={styles.textBlock}>
             <h2 className={styles.scrollyTitle}>INSPIRAÇÃO</h2>
@@ -77,9 +77,9 @@ export default function InspiracaoRodin() {
 
         </div>
 
-        <div className={styles.rightColumn} ref={rightColumnRef}>
+        <div className={styles.rightColumn} >
           <img 
-            ref={imageRef}
+            
             src="/auguste_rodin.png" 
             alt="Auguste Rodin" 
             className={styles.scrollyImage}
