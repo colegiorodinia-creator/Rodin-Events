@@ -3,7 +3,7 @@
   width: 100%;
   display: block;
   z-index: 2;
-  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.95)), url('/cimento-queimado.webp'); background-size: cover; background-position: center; background-attachment: fixed;
+  background: var(--rodin-white);
   padding: 0;
 }
 
