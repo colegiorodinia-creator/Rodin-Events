@@ -77,6 +77,10 @@ export default function Programs() {
     if (window.innerWidth <= 768) return;
     let mm = gsap.matchMedia();
     mm.add("(min-width: 1025px)", () => {
+        setTimeout(() => ScrollTrigger.refresh(), 500);
+        setTimeout(() => ScrollTrigger.refresh(), 2000);
+        setTimeout(() => ScrollTrigger.refresh(), 500);
+        setTimeout(() => ScrollTrigger.refresh(), 2000);
       if (!containerRef.current) return;
       const sections = gsap.utils.toArray("." + styles.tiktokSection) as HTMLElement[];
       gsap.set(sections.slice(1), { yPercent: 100 });
@@ -84,7 +88,8 @@ export default function Programs() {
       ScrollTrigger.create({
         trigger: containerRef.current,
         pin: true,
-        start: "top top",
+          pinType: "fixed",
+          start: "top top",
         end: "+=600",
         onUpdate: (self) => {
           const progress = self.progress;
