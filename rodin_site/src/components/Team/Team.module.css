@@ -207,7 +207,9 @@
   
   .card {
     aspect-ratio: auto; min-height: 142vw;
-    width: 100%; 
+    width: 100%;
+    background-color: #1e1e1e;
+    background-attachment: scroll;
   }
   
   .title {
