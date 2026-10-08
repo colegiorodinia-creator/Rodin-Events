@@ -162,6 +162,7 @@
     text-align: center;
   }
   .nextHeroImage { object-position: 83% center !important; }
+  .bgImage { transform: scale(1) !important; }
   /* O gradiente escurece as duas pontas: topo e fundo para dar leitura na letra branca */
   .overlay { 
     background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.7) 100%); 

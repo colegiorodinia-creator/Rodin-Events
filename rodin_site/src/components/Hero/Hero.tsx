@@ -17,12 +17,12 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useGSAP(() => {
-    if (window.innerWidth <= 768) return;
+    if (window.innerWidth <= 1024) return;
     const timer = setTimeout(() => {
       let mm = gsap.matchMedia();
 
-      // Executa a animação de zoom e overlay APENAS em telas maiores que 768px (Desktop)
-      mm.add("(min-width: 769px)", () => {
+      // Executa a animação de zoom e overlay APENAS em telas maiores que 1024px (Desktop)
+      mm.add("(min-width: 1025px)", () => {
         gsap.fromTo(heroRef.current,
           { scale: 1 },
           {
