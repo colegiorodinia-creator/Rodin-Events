@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .statement {
-    padding: 15dvh 1.5rem; min-height: 100dvh; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
+    padding: 10dvh 1.5rem 5dvh 1.5rem; min-height: auto; display: flex; flex-direction: column; align-items: flex-start;
   }
   .text {
     font-size: 2.5rem;
@@ -60,7 +60,7 @@
 @media (max-width: 768px) {
   .mobileBr { display: block; }
   .desktopBr { display: none; }
-  .mobileSpace { display: none; } .content { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+  .mobileSpace { display: none; } .content { height: auto; display: flex; flex-direction: column; justify-content: flex-start; }
   .desktopSpace { display: inline; }
   
   .text {
