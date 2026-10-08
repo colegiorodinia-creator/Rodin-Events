@@ -254,7 +254,7 @@
     margin-bottom: 1.5rem !important; /* Espaço entre a descrição e o botão */
     margin-top: 0 !important; /* Garante que não está sendo empurrado pelo margin auto anterior */
   }
-  .exploreButton { align-self: flex-start !important; margin-top: 0 !important; padding: 0.8rem 1.2rem !important; font-size: 0.85rem !important; max-width: 70vw !important; line-height: 1.2 !important; }
+  .exploreButton { align-self: center !important; justify-content: center !important; margin-top: 0 !important; padding: 0.8rem 1.2rem !important; font-size: 0.85rem !important; max-width: 90vw !important; width: auto !important; line-height: 1.2 !important; }
   .videoOverlay {
     height: 100dvh !important; 
     padding: 0 5vw 4vh 5vw !important; /* 12vh na base pro botão não bater nas bordas/whatsapp */
