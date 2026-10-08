@@ -6,6 +6,7 @@ import Lenis from 'lenis';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {

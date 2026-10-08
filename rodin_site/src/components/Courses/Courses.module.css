@@ -1,11 +1,11 @@
 .coursesSection {
   background-color: var(--rodin-white);
-  padding: 10vh 0; /* Removido padding lateral para nǭo interferir com o 100vw do wrapper no desktop/mobile */
+  padding: 10dvh 0; /* Removido padding lateral para nǭo interferir com o 100vw do wrapper no desktop/mobile */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .sectionTitle {
@@ -13,7 +13,7 @@
   font-size: var(--fs-section-title);
   color: var(--rodin-black);
   text-transform: uppercase;
-  margin-bottom: 5vh;
+  margin-bottom: 5dvh;
   font-weight: 900;
   letter-spacing: -2px;
   scroll-margin-top: 100px;

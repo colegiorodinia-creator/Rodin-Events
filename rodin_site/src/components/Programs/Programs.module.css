@@ -10,7 +10,7 @@
 /* Container Base para o GSAP Pin */
 .tiktokContainer {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
 }
@@ -18,17 +18,17 @@
 /* Trilha de Empilhamento Absoluto (Cover Wipe) */
 .tiktokTrack {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
 }
 
-/* Cada SeÃ§Ã£o ocupa 100vh e inicia fora da tela (controlado via GSAP) */
+/* Cada SeÃ§Ã£o ocupa 100dvh e inicia fora da tela (controlado via GSAP) */
  .tiktokSection {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background-color: #000;
   box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.8);
@@ -41,7 +41,7 @@
   top: 50%;
   left: 50%;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -55,7 +55,7 @@
 
 @media (max-aspect-ratio: 16/9) {
   .iframeWrapper {
-    width: 177.77vh; /* 16/9 * 100 */
+    width: 177.77dvh; /* 16/9 * 100 */
   }
 }
 
@@ -72,13 +72,13 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100vw; /* Acompanha a largura do vÃ­deo */
-  height: 50vh; 
+  height: 50dvh; 
   background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
   z-index: 2;
   display: flex;
   align-items: flex-end;
   padding-left: 9.5%; /* Porcentagem exata para alinhar com o texto embutido no vÃ­deo */
-  padding-bottom: 7vh;
+  padding-bottom: 7dvh;
   padding-right: 5vw;
   pointer-events: none; 
 }
@@ -86,7 +86,7 @@
 /* Quando a tela for mais estreita que 16:9, o overlay tambÃ©m deve alargar para manter o texto alinhado ao vÃ­deo croppado */
 @media (max-aspect-ratio: 16/9) {
   .videoOverlay {
-    width: 177.77vh; 
+    width: 177.77dvh; 
   }
 }
 
@@ -152,8 +152,8 @@
     height: auto;
   }
   .videoOverlay {
-    height: 60vh;
-    padding-bottom: 15vh;
+    height: 60dvh;
+    padding-bottom: 15dvh;
     padding-left: 12%;
   }
 }
@@ -244,7 +244,7 @@
     white-space: normal;
     word-break: keep-all; 
     margin-bottom: auto !important; /* EMPURRA O TEXTO E O BOTÃO PARA O FUNDO! */
-    margin-top: 8vh; /* Título mais para cima, logo abaixo do header */
+    margin-top: 8dvh; /* Título mais para cima, logo abaixo do header */
   }
   .desc {
     font-size: 0.95rem !important;
@@ -257,7 +257,7 @@
   .exploreButton { align-self: center !important; justify-content: center !important; margin-top: 0 !important; padding: 0.8rem 1.2rem !important; font-size: 0.85rem !important; max-width: 90vw !important; width: auto !important; line-height: 1.2 !important; }
   .videoOverlay {
     height: 100dvh !important; 
-    padding: 0 5vw 4vh 5vw !important; /* 12vh na base pro botão não bater nas bordas/whatsapp */
+    padding: 0 5vw 4dvh 5vw !important; /* 12dvh na base pro botão não bater nas bordas/whatsapp */
     bottom: 0 !important; 
     left: 0 !important;
     transform: none !important;
@@ -326,7 +326,7 @@
   .tiktokSection { position: relative !important; top: auto !important; left: auto !important; }
   .iframeWrapper {
     width: 100vw !important;
-    height: 100vh !important;
+    height: 100dvh !important;
   }
   .videoOverlay {
     width: 100vw !important;
@@ -367,7 +367,7 @@
     top: auto !important; 
     left: auto !important; 
     width: 90vw !important;
-    height: 75vh !important;
+    height: 75dvh !important;
     margin-bottom: 2.5rem !important;
     border-radius: 25px !important;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
@@ -405,5 +405,5 @@
 @media (max-width: 1024px) {
   .tiktokTrack { display: flex !important; flex-direction: row !important; align-items: stretch !important; overflow-x: auto !important; scroll-snap-type: x mandatory !important; gap: 5vw !important; padding: 2rem 7.5vw !important; -ms-overflow-style: none !important; scrollbar-width: none !important; }
   .tiktokTrack::-webkit-scrollbar { display: none !important; }
-  .tiktokSection { flex: 0 0 85vw !important; width: 85vw !important; height: 75vh !important; scroll-snap-align: center !important; margin-bottom: 0 !important; border-radius: 25px !important; box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important; overflow: hidden !important; position: relative !important; top: auto !important; left: auto !important; }
+  .tiktokSection { flex: 0 0 85vw !important; width: 85vw !important; height: 75dvh !important; scroll-snap-align: center !important; margin-bottom: 0 !important; border-radius: 25px !important; box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important; overflow: hidden !important; position: relative !important; top: auto !important; left: auto !important; }
 }

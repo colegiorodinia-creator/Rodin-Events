@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   height: 100dvh;
   overflow: hidden;
   display: flex;
@@ -66,7 +66,7 @@
   position: relative;
   z-index: 3;
   max-width: 800px;
-  margin-top: 12vh; /* Afasta visualmente do cabeçalho para centralizar na área útil da tela */
+  margin-top: 12dvh; /* Afasta visualmente do cabeçalho para centralizar na área útil da tela */
 }
 
 .subtitle {
@@ -116,7 +116,7 @@
 
 .scrollIcon {
   position: absolute;
-  bottom: 5vh;
+  bottom: 5dvh;
   right: 5vw;
   display: flex;
   flex-direction: column; align-items: flex-start;
@@ -155,7 +155,7 @@
 @media (max-width: 768px) {
 
   .hero {
-    padding: 8vh 1.5rem 8vh 1.5rem; /* Respiro no topo e no fundo */
+    padding: 8dvh 1.5rem 8dvh 1.5rem; /* Respiro no topo e no fundo */
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; 
