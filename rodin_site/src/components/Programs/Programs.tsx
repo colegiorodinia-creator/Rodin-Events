@@ -17,7 +17,7 @@ const programsData = [
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video1.png?v=2",
     mobileTranslateX: "-50%",
     link: "/extracurriculares",
-    buttonText: "Conheça Todas as Modalidades"
+    buttonText: "Saiba mais"
   },
   {
     title: <>Itinerários<br/>formativos eletivos</>,
@@ -27,7 +27,7 @@ const programsData = [
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video2_mobile_final.png?v=1",
     mobileTranslateX: "-50%",
     link: "/itinerarios",
-    buttonText: "Conheça Nossos Itinerários"
+    buttonText: "Saiba mais"
   },
   {
     title: <>Programa<br/>de Educação Bilíngue</>,
@@ -37,7 +37,7 @@ const programsData = [
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video3.jpg?v=2",
     mobileTranslateX: "-50%",
     link: "/bilingue",
-    buttonText: "Saiba mais sobre o Bilíngue"
+    buttonText: "Saiba mais"
   }
 ];
 
