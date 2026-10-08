@@ -1,18 +1,17 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from './Programs.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
-import YouTube from 'react-youtube';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const programsData = [
   {
-    title: "Cursos Extracurriculares",
-    desc: <>Nossa grade de cursos abre um universo de possibilidades: da disciplina à expressão artística, da fluência em novos idiomas à mente estratégica. Cada caminho foi pensado para o crescimento integral <br className={styles.mobileBreak} />do aluno.</>,
+    title: <>Cursos<br/>Extracurriculares</>,
+    desc: <>Nossa grade de cursos abre um universo de possibilidades: da disciplina à expressão artística, da fluência em novos idiomas à mente estratégica. Cada caminho foi pensado para o crescimento integral do aluno.</>,
     youtubeId: "_uicu5AFHyc",
     thumbUrl: "/extracurriculares/thumb/thumb_video1.png?v=2",
     thumbUrlMobile: "/extracurriculares/thumb/thumb_video1.png?v=2",
@@ -42,36 +41,9 @@ const programsData = [
   }
 ];
 
-const youtubeOpts = {
-  height: '100%',
-  width: '100%',
-  playerVars: {
-    autoplay: 0,
-    loop: 1,
-    controls: 1,
-    modestbranding: 1,
-    rel: 0,
-    playsinline: 1
-  },
-};
-
 export default function Programs() {
-  const [playing, setPlaying] = useState<{ [key: number]: boolean }>({});
-  const [hasInteracted, setHasInteracted] = useState<{ [key: number]: boolean }>({});
-  const [players, setPlayers] = useState<{ [key: number]: any }>({});
-  const hasPlayedRef = useRef<{ [key: number]: boolean }>({});
-  const lastPlayTimeRef = useRef<{ [key: number]: number }>({});
-
   const containerRef = useRef(null);
   const trackRef = useRef(null);
-
-  // Notifica o Navbar quando algum vídeo dessa seção está tocando (para esconder o cabeçalho)
-  useEffect(() => {
-    const isAnyPlaying = Object.values(playing).some(val => val === true);
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('programsVideoState', { detail: { isAnyPlaying } }));
-    }
-  }, [playing]);
 
   useGSAP(() => {
     if (window.innerWidth <= 768) return;
@@ -88,8 +60,8 @@ export default function Programs() {
       ScrollTrigger.create({
         trigger: containerRef.current,
         pin: true,
-          pinType: "fixed",
-          start: "top top",
+        pinType: "fixed",
+        start: "top top",
         end: "+=600",
         onUpdate: (self) => {
           const progress = self.progress;
@@ -109,24 +81,6 @@ export default function Programs() {
     });
   }, { scope: containerRef });
 
-  const onReady = (e: any, index: number) => {
-    setPlayers(prev => ({ ...prev, [index]: e.target }));
-  };
-
-  const handleCustomPlay = (index: number) => {
-    if (!programsData[index].youtubeId) return; // Se não tiver vídeo, não faz nada
-    hasPlayedRef.current[index] = false;
-    setPlaying(prev => ({ ...prev, [index]: true }));
-      setHasInteracted(prev => ({ ...prev, [index]: true }));
-    if (players[index]) {
-      try {
-        players[index].playVideo();
-      } catch (e) {
-        console.warn("Autoplay blocked by browser", e);
-      }
-    }
-  };
-
   return (
     <div className="programs-gsap-wrapper">
       <section className={styles.programs} ref={containerRef}>
@@ -136,95 +90,34 @@ export default function Programs() {
             <div key={i} className={styles.tiktokSection}>
               
               <div className={styles.iframeWrapper}>
-                {!playing[i] && (
-                  <>
+                <>
+                  <div 
+                    className={styles.thumbnailLayerDesktop} 
+                    style={{ backgroundImage: `url('${prog.thumbUrl}')`, cursor: 'default' }}
+                  >
+                  </div>
                     <div 
-                      className={styles.thumbnailLayerDesktop} 
-                      style={{ backgroundImage: `url('${prog.thumbUrl}')` }}
-                      onClick={() => handleCustomPlay(i)}
+                      className={styles.thumbnailLayerMobile} 
+                      style={{ overflow: 'hidden', cursor: 'default' }}
                     >
-                      {!prog.youtubeId ? (
-                        <div className={styles.videoPlaceholderText}>
-                          <p>VÍDEO EM BREVE</p>
-                        </div>
-                      ) : (
-                        <div className={styles.playCenter}>
-                          <button className={styles.playButton} onClick={() => handleCustomPlay(i)}>
-                            <div className={styles.playTriangle}></div>
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                      <div 
-                        className={styles.thumbnailLayerMobile} 
-                        onClick={() => handleCustomPlay(i)}
-                        style={{ overflow: 'hidden' }}
-                      >
-                        <img 
-                          src={prog.thumbUrlMobile} 
-                          alt="Thumbnail" 
-                          style={{ 
-                            position: 'absolute', 
-                            top: 0, 
-                            left: '50%', 
-                            height: '100%', 
-                            width: 'auto', 
-                            maxWidth: 'none', 
-                            transform: `translateX(${prog.mobileTranslateX})` 
-                          }} 
-                         loading="lazy" decoding="async" />
-                      {!prog.youtubeId ? (
-                        <div className={styles.videoPlaceholderText} style={{ zIndex: 6 }}>
-                          <p>VÍDEO EM BREVE</p>
-                        </div>
-                      ) : (
-                        <div className={styles.playCenter} style={{ zIndex: 6 }}>
-                          <button className={styles.playButton} onClick={() => handleCustomPlay(i)} onTouchEnd={(e) => { e.preventDefault(); handleCustomPlay(i); }}>
-                            <div className={styles.playTriangle}></div>
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </>
-                )}
-
-                {prog.youtubeId && hasInteracted[i] && (
-                  <>
-                    <YouTube 
-                      videoId={prog.youtubeId} 
-                      opts={{...youtubeOpts, playerVars: { ...youtubeOpts.playerVars, autoplay: 1 }}} 
-                      onReady={(e) => onReady(e, i)}
-                      onStateChange={(e) => {
-                          if (e.data === 1) { // Playing
-                            setPlaying(prev => ({ ...prev, [i]: true }));
-                          } else if (e.data === 2 || e.data === 0) { // Paused or Ended
-                            setPlaying(prev => ({ ...prev, [i]: false }));
-                          }
-                        }}
-                      className={styles.iframe}
-                      iframeClassName={styles.iframe}
-                    />
-                    {playing[i] && (
-                      <div 
-                        style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                          zIndex: 10,
-                          cursor: 'pointer'
-                        }}
-                        onClick={() => {
-                          if (players[i]) players[i].pauseVideo();
-                        }}
-                      />
-                    )}
-                  </>
-                )}
+                      <img 
+                        src={prog.thumbUrlMobile} 
+                        alt="Thumbnail" 
+                        style={{ 
+                          position: 'absolute', 
+                          top: 0, 
+                          left: '50%', 
+                          height: '100%', 
+                          width: 'auto', 
+                          maxWidth: 'none', 
+                          transform: `translateX(${prog.mobileTranslateX})` 
+                        }} 
+                       loading="lazy" decoding="async" />
+                  </div>
+                </>
               </div>
 
-              <div className={`${styles.videoOverlay} ${playing[i] ? styles.overlayHidden : ''}`}>
+              <div className={styles.videoOverlay}>
                 <div className={styles.textContent}>
                   <h3 className={styles.title}>{prog.title}</h3>
                   <p className={styles.desc}>{prog.desc}</p>
@@ -246,4 +139,3 @@ export default function Programs() {
     </div>
   );
 }
-
