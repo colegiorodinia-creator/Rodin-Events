@@ -13,7 +13,7 @@ export default function Statement() {
   const textRef = useRef(null);
 
   useGSAP(() => {
-    if (window.innerWidth <= 768) return;
+    
     if (!textRef.current) return;
     const words = (textRef.current as HTMLElement).querySelectorAll('span');
     
