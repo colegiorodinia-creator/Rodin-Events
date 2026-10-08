@@ -77,7 +77,10 @@
   background-size: contain; 
   background-position: left bottom; 
   background-repeat: no-repeat;
-  mix-blend-mode: screen;\n  -webkit-mix-blend-mode: screen;\n  filter: brightness(0.8) contrast(4);\n  margin-bottom: 2rem;
+  mix-blend-mode: screen;
+  -webkit-mix-blend-mode: screen;
+  filter: brightness(0.8) contrast(4);
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 1024px) {
