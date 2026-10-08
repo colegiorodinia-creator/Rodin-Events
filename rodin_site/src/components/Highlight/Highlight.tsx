@@ -162,7 +162,7 @@ export default function Highlight() {
   };
 
   return (
-    <section className={styles.highlightSection} ref={containerRef} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEndHandler}>
+    <section id="experiencia" className={styles.highlightSection} ref={containerRef} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEndHandler}>
       
       {/* Background Dinâmico (Imagem ou Vídeo) */}
       {!isPlaying ? (
